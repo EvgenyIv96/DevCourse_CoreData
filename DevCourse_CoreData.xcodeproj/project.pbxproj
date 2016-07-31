@@ -21,7 +21,6 @@
 		5C123F261D4E7CF3005D0678 /* EIDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F171D4E7CF3005D0678 /* EIDataManager.m */; };
 		5C123F271D4E7CF3005D0678 /* EICoreDataController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C123F1A1D4E7CF3005D0678 /* EICoreDataController.xib */; };
 		5C123F281D4E7CF3005D0678 /* EIMainTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C123F1B1D4E7CF3005D0678 /* EIMainTabBarController.xib */; };
-		5C123F2A1D4E7D58005D0678 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C123F291D4E7D58005D0678 /* Default-568h@2x.png */; };
 		5C83D2141D4E74370090A113 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83D2131D4E74370090A113 /* main.m */; };
 		5C83D2171D4E74370090A113 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83D2161D4E74370090A113 /* AppDelegate.m */; };
 		5C83D2221D4E74370090A113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C83D2211D4E74370090A113 /* Assets.xcassets */; };
@@ -56,7 +55,6 @@
 		5C123F171D4E7CF3005D0678 /* EIDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EIDataManager.m; sourceTree = "<group>"; };
 		5C123F1A1D4E7CF3005D0678 /* EICoreDataController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EICoreDataController.xib; sourceTree = "<group>"; };
 		5C123F1B1D4E7CF3005D0678 /* EIMainTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EIMainTabBarController.xib; sourceTree = "<group>"; };
-		5C123F291D4E7D58005D0678 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5C83D20F1D4E74370090A113 /* DevCourse_CoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevCourse_CoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C83D2131D4E74370090A113 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5C83D2151D4E74370090A113 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 		5C83D2061D4E74370090A113 = {
 			isa = PBXGroup;
 			children = (
-				5C123F291D4E7D58005D0678 /* Default-568h@2x.png */,
 				5C83D2111D4E74370090A113 /* DevCourse_CoreData */,
 				5C83D2101D4E74370090A113 /* Products */,
 				9EB79D75EC3917A3A10A229E /* Pods */,
@@ -298,7 +295,6 @@
 				5C123F271D4E7CF3005D0678 /* EICoreDataController.xib in Resources */,
 				5C83D2251D4E74370090A113 /* LaunchScreen.storyboard in Resources */,
 				5C123F281D4E7CF3005D0678 /* EIMainTabBarController.xib in Resources */,
-				5C123F2A1D4E7D58005D0678 /* Default-568h@2x.png in Resources */,
 				5C83D2221D4E74370090A113 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
