@@ -7,27 +7,65 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C123EF61D4E7AAE005D0678 /* DevCourse_CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C123EF41D4E7AAE005D0678 /* DevCourse_CoreData.xcdatamodeld */; };
+		5C123F1C1D4E7CF3005D0678 /* EICoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123EFF1D4E7CF3005D0678 /* EICoreDataController.m */; };
+		5C123F1D1D4E7CF3005D0678 /* EICoursesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F021D4E7CF3005D0678 /* EICoursesViewController.m */; };
+		5C123F1E1D4E7CF3005D0678 /* EIMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F041D4E7CF3005D0678 /* EIMainTabBarController.m */; };
+		5C123F1F1D4E7CF3005D0678 /* EIUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F071D4E7CF3005D0678 /* EIUsersViewController.m */; };
+		5C123F201D4E7CF3005D0678 /* EICourse+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F0B1D4E7CF3005D0678 /* EICourse+CoreDataProperties.m */; };
+		5C123F211D4E7CF3005D0678 /* EICourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F0D1D4E7CF3005D0678 /* EICourse.m */; };
+		5C123F221D4E7CF3005D0678 /* EIEduPlatform+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F0F1D4E7CF3005D0678 /* EIEduPlatform+CoreDataProperties.m */; };
+		5C123F231D4E7CF3005D0678 /* EIEduPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F111D4E7CF3005D0678 /* EIEduPlatform.m */; };
+		5C123F241D4E7CF3005D0678 /* EIUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F131D4E7CF3005D0678 /* EIUser+CoreDataProperties.m */; };
+		5C123F251D4E7CF3005D0678 /* EIUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F151D4E7CF3005D0678 /* EIUser.m */; };
+		5C123F261D4E7CF3005D0678 /* EIDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F171D4E7CF3005D0678 /* EIDataManager.m */; };
+		5C123F271D4E7CF3005D0678 /* EICoreDataController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C123F1A1D4E7CF3005D0678 /* EICoreDataController.xib */; };
+		5C123F281D4E7CF3005D0678 /* EIMainTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C123F1B1D4E7CF3005D0678 /* EIMainTabBarController.xib */; };
+		5C123F2A1D4E7D58005D0678 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C123F291D4E7D58005D0678 /* Default-568h@2x.png */; };
 		5C83D2141D4E74370090A113 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83D2131D4E74370090A113 /* main.m */; };
 		5C83D2171D4E74370090A113 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83D2161D4E74370090A113 /* AppDelegate.m */; };
-		5C83D21A1D4E74370090A113 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83D2191D4E74370090A113 /* ViewController.m */; };
-		5C83D21D1D4E74370090A113 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C83D21B1D4E74370090A113 /* Main.storyboard */; };
-		5C83D2201D4E74370090A113 /* DevCourse_CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C83D21E1D4E74370090A113 /* DevCourse_CoreData.xcdatamodeld */; };
 		5C83D2221D4E74370090A113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C83D2211D4E74370090A113 /* Assets.xcassets */; };
 		5C83D2251D4E74370090A113 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C83D2231D4E74370090A113 /* LaunchScreen.storyboard */; };
+		BE6545E4B79EA9B0B0ACA6FF /* libPods-DevCourse_CoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE76DCA79BBE756B21C29F2 /* libPods-DevCourse_CoreData.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		48D65A5FCB31F4CE8006D969 /* Pods-DevCourse_CoreData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevCourse_CoreData.release.xcconfig"; path = "Pods/Target Support Files/Pods-DevCourse_CoreData/Pods-DevCourse_CoreData.release.xcconfig"; sourceTree = "<group>"; };
+		5C123EF51D4E7AAE005D0678 /* DevCourse_41_CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DevCourse_41_CoreData.xcdatamodel; sourceTree = "<group>"; };
+		5C123EFE1D4E7CF3005D0678 /* EICoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EICoreDataController.h; sourceTree = "<group>"; };
+		5C123EFF1D4E7CF3005D0678 /* EICoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EICoreDataController.m; sourceTree = "<group>"; };
+		5C123F011D4E7CF3005D0678 /* EICoursesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EICoursesViewController.h; sourceTree = "<group>"; };
+		5C123F021D4E7CF3005D0678 /* EICoursesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EICoursesViewController.m; sourceTree = "<group>"; };
+		5C123F031D4E7CF3005D0678 /* EIMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EIMainTabBarController.h; sourceTree = "<group>"; };
+		5C123F041D4E7CF3005D0678 /* EIMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EIMainTabBarController.m; sourceTree = "<group>"; };
+		5C123F061D4E7CF3005D0678 /* EIUsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EIUsersViewController.h; sourceTree = "<group>"; };
+		5C123F071D4E7CF3005D0678 /* EIUsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EIUsersViewController.m; sourceTree = "<group>"; };
+		5C123F0A1D4E7CF3005D0678 /* EICourse+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EICourse+CoreDataProperties.h"; sourceTree = "<group>"; };
+		5C123F0B1D4E7CF3005D0678 /* EICourse+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EICourse+CoreDataProperties.m"; sourceTree = "<group>"; };
+		5C123F0C1D4E7CF3005D0678 /* EICourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EICourse.h; sourceTree = "<group>"; };
+		5C123F0D1D4E7CF3005D0678 /* EICourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EICourse.m; sourceTree = "<group>"; };
+		5C123F0E1D4E7CF3005D0678 /* EIEduPlatform+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EIEduPlatform+CoreDataProperties.h"; sourceTree = "<group>"; };
+		5C123F0F1D4E7CF3005D0678 /* EIEduPlatform+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EIEduPlatform+CoreDataProperties.m"; sourceTree = "<group>"; };
+		5C123F101D4E7CF3005D0678 /* EIEduPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EIEduPlatform.h; sourceTree = "<group>"; };
+		5C123F111D4E7CF3005D0678 /* EIEduPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EIEduPlatform.m; sourceTree = "<group>"; };
+		5C123F121D4E7CF3005D0678 /* EIUser+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EIUser+CoreDataProperties.h"; sourceTree = "<group>"; };
+		5C123F131D4E7CF3005D0678 /* EIUser+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EIUser+CoreDataProperties.m"; sourceTree = "<group>"; };
+		5C123F141D4E7CF3005D0678 /* EIUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EIUser.h; sourceTree = "<group>"; };
+		5C123F151D4E7CF3005D0678 /* EIUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EIUser.m; sourceTree = "<group>"; };
+		5C123F161D4E7CF3005D0678 /* EIDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EIDataManager.h; sourceTree = "<group>"; };
+		5C123F171D4E7CF3005D0678 /* EIDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EIDataManager.m; sourceTree = "<group>"; };
+		5C123F1A1D4E7CF3005D0678 /* EICoreDataController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EICoreDataController.xib; sourceTree = "<group>"; };
+		5C123F1B1D4E7CF3005D0678 /* EIMainTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EIMainTabBarController.xib; sourceTree = "<group>"; };
+		5C123F291D4E7D58005D0678 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5C83D20F1D4E74370090A113 /* DevCourse_CoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevCourse_CoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C83D2131D4E74370090A113 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5C83D2151D4E74370090A113 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5C83D2161D4E74370090A113 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5C83D2181D4E74370090A113 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5C83D2191D4E74370090A113 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		5C83D21C1D4E74370090A113 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5C83D21F1D4E74370090A113 /* DevCourse_CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DevCourse_CoreData.xcdatamodel; sourceTree = "<group>"; };
 		5C83D2211D4E74370090A113 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C83D2241D4E74370090A113 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C83D2261D4E74370090A113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A61122338A305C821D1F02F0 /* Pods-DevCourse_CoreData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevCourse_CoreData.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DevCourse_CoreData/Pods-DevCourse_CoreData.debug.xcconfig"; sourceTree = "<group>"; };
+		CCE76DCA79BBE756B21C29F2 /* libPods-DevCourse_CoreData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DevCourse_CoreData.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +73,116 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE6545E4B79EA9B0B0ACA6FF /* libPods-DevCourse_CoreData.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C123EFB1D4E7CF3005D0678 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5C123EFC1D4E7CF3005D0678 /* Controllers */,
+				5C123F081D4E7CF3005D0678 /* Model */,
+				5C123F181D4E7CF3005D0678 /* Utils */,
+				5C123F191D4E7CF3005D0678 /* Views */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		5C123EFC1D4E7CF3005D0678 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C123EFD1D4E7CF3005D0678 /* Core data */,
+				5C123F001D4E7CF3005D0678 /* Courses */,
+				5C123F031D4E7CF3005D0678 /* EIMainTabBarController.h */,
+				5C123F041D4E7CF3005D0678 /* EIMainTabBarController.m */,
+				5C123F051D4E7CF3005D0678 /* Users */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5C123EFD1D4E7CF3005D0678 /* Core data */ = {
+			isa = PBXGroup;
+			children = (
+				5C123EFE1D4E7CF3005D0678 /* EICoreDataController.h */,
+				5C123EFF1D4E7CF3005D0678 /* EICoreDataController.m */,
+			);
+			path = "Core data";
+			sourceTree = "<group>";
+		};
+		5C123F001D4E7CF3005D0678 /* Courses */ = {
+			isa = PBXGroup;
+			children = (
+				5C123F011D4E7CF3005D0678 /* EICoursesViewController.h */,
+				5C123F021D4E7CF3005D0678 /* EICoursesViewController.m */,
+			);
+			path = Courses;
+			sourceTree = "<group>";
+		};
+		5C123F051D4E7CF3005D0678 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				5C123F061D4E7CF3005D0678 /* EIUsersViewController.h */,
+				5C123F071D4E7CF3005D0678 /* EIUsersViewController.m */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		5C123F081D4E7CF3005D0678 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C123F091D4E7CF3005D0678 /* Core data */,
+				5C123F161D4E7CF3005D0678 /* EIDataManager.h */,
+				5C123F171D4E7CF3005D0678 /* EIDataManager.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5C123F091D4E7CF3005D0678 /* Core data */ = {
+			isa = PBXGroup;
+			children = (
+				5C123F0A1D4E7CF3005D0678 /* EICourse+CoreDataProperties.h */,
+				5C123F0B1D4E7CF3005D0678 /* EICourse+CoreDataProperties.m */,
+				5C123F0C1D4E7CF3005D0678 /* EICourse.h */,
+				5C123F0D1D4E7CF3005D0678 /* EICourse.m */,
+				5C123F0E1D4E7CF3005D0678 /* EIEduPlatform+CoreDataProperties.h */,
+				5C123F0F1D4E7CF3005D0678 /* EIEduPlatform+CoreDataProperties.m */,
+				5C123F101D4E7CF3005D0678 /* EIEduPlatform.h */,
+				5C123F111D4E7CF3005D0678 /* EIEduPlatform.m */,
+				5C123F121D4E7CF3005D0678 /* EIUser+CoreDataProperties.h */,
+				5C123F131D4E7CF3005D0678 /* EIUser+CoreDataProperties.m */,
+				5C123F141D4E7CF3005D0678 /* EIUser.h */,
+				5C123F151D4E7CF3005D0678 /* EIUser.m */,
+			);
+			path = "Core data";
+			sourceTree = "<group>";
+		};
+		5C123F181D4E7CF3005D0678 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		5C123F191D4E7CF3005D0678 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5C123F1A1D4E7CF3005D0678 /* EICoreDataController.xib */,
+				5C123F1B1D4E7CF3005D0678 /* EIMainTabBarController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		5C83D2061D4E74370090A113 = {
 			isa = PBXGroup;
 			children = (
+				5C123F291D4E7D58005D0678 /* Default-568h@2x.png */,
 				5C83D2111D4E74370090A113 /* DevCourse_CoreData */,
 				5C83D2101D4E74370090A113 /* Products */,
+				9EB79D75EC3917A3A10A229E /* Pods */,
+				D001C2038E6FCA2DF47AF299 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,15 +197,13 @@
 		5C83D2111D4E74370090A113 /* DevCourse_CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				5C123EFB1D4E7CF3005D0678 /* Classes */,
+				5C123EF41D4E7AAE005D0678 /* DevCourse_CoreData.xcdatamodeld */,
 				5C83D2151D4E74370090A113 /* AppDelegate.h */,
 				5C83D2161D4E74370090A113 /* AppDelegate.m */,
-				5C83D2181D4E74370090A113 /* ViewController.h */,
-				5C83D2191D4E74370090A113 /* ViewController.m */,
-				5C83D21B1D4E74370090A113 /* Main.storyboard */,
 				5C83D2211D4E74370090A113 /* Assets.xcassets */,
 				5C83D2231D4E74370090A113 /* LaunchScreen.storyboard */,
 				5C83D2261D4E74370090A113 /* Info.plist */,
-				5C83D21E1D4E74370090A113 /* DevCourse_CoreData.xcdatamodeld */,
 				5C83D2121D4E74370090A113 /* Supporting Files */,
 			);
 			path = DevCourse_CoreData;
@@ -82,6 +217,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9EB79D75EC3917A3A10A229E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A61122338A305C821D1F02F0 /* Pods-DevCourse_CoreData.debug.xcconfig */,
+				48D65A5FCB31F4CE8006D969 /* Pods-DevCourse_CoreData.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D001C2038E6FCA2DF47AF299 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CCE76DCA79BBE756B21C29F2 /* libPods-DevCourse_CoreData.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -89,9 +241,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C83D2291D4E74370090A113 /* Build configuration list for PBXNativeTarget "DevCourse_CoreData" */;
 			buildPhases = (
+				866176917DDACC0C8E85B4DA /* [CP] Check Pods Manifest.lock */,
 				5C83D20B1D4E74370090A113 /* Sources */,
 				5C83D20C1D4E74370090A113 /* Frameworks */,
 				5C83D20D1D4E74370090A113 /* Resources */,
+				BF6C51DC3E600160A157DF7C /* [CP] Embed Pods Frameworks */,
+				F7F6EE203B140D363325B986 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -108,6 +263,7 @@
 		5C83D2071D4E74370090A113 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = EI;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Евгений Иванов";
 				TargetAttributes = {
@@ -139,37 +295,89 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C123F271D4E7CF3005D0678 /* EICoreDataController.xib in Resources */,
 				5C83D2251D4E74370090A113 /* LaunchScreen.storyboard in Resources */,
+				5C123F281D4E7CF3005D0678 /* EIMainTabBarController.xib in Resources */,
+				5C123F2A1D4E7D58005D0678 /* Default-568h@2x.png in Resources */,
 				5C83D2221D4E74370090A113 /* Assets.xcassets in Resources */,
-				5C83D21D1D4E74370090A113 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		866176917DDACC0C8E85B4DA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BF6C51DC3E600160A157DF7C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DevCourse_CoreData/Pods-DevCourse_CoreData-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7F6EE203B140D363325B986 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DevCourse_CoreData/Pods-DevCourse_CoreData-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5C83D20B1D4E74370090A113 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C83D21A1D4E74370090A113 /* ViewController.m in Sources */,
-				5C83D2201D4E74370090A113 /* DevCourse_CoreData.xcdatamodeld in Sources */,
 				5C83D2171D4E74370090A113 /* AppDelegate.m in Sources */,
+				5C123F261D4E7CF3005D0678 /* EIDataManager.m in Sources */,
+				5C123F1F1D4E7CF3005D0678 /* EIUsersViewController.m in Sources */,
+				5C123F241D4E7CF3005D0678 /* EIUser+CoreDataProperties.m in Sources */,
+				5C123F201D4E7CF3005D0678 /* EICourse+CoreDataProperties.m in Sources */,
+				5C123EF61D4E7AAE005D0678 /* DevCourse_CoreData.xcdatamodeld in Sources */,
+				5C123F211D4E7CF3005D0678 /* EICourse.m in Sources */,
+				5C123F1E1D4E7CF3005D0678 /* EIMainTabBarController.m in Sources */,
+				5C123F231D4E7CF3005D0678 /* EIEduPlatform.m in Sources */,
+				5C123F1C1D4E7CF3005D0678 /* EICoreDataController.m in Sources */,
+				5C123F1D1D4E7CF3005D0678 /* EICoursesViewController.m in Sources */,
 				5C83D2141D4E74370090A113 /* main.m in Sources */,
+				5C123F251D4E7CF3005D0678 /* EIUser.m in Sources */,
+				5C123F221D4E7CF3005D0678 /* EIEduPlatform+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5C83D21B1D4E74370090A113 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5C83D21C1D4E74370090A113 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5C83D2231D4E74370090A113 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -267,6 +475,7 @@
 		};
 		5C83D22A1D4E74370090A113 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A61122338A305C821D1F02F0 /* Pods-DevCourse_CoreData.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DevCourse_CoreData/Info.plist;
@@ -278,6 +487,7 @@
 		};
 		5C83D22B1D4E74370090A113 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48D65A5FCB31F4CE8006D969 /* Pods-DevCourse_CoreData.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DevCourse_CoreData/Info.plist;
@@ -306,16 +516,17 @@
 				5C83D22B1D4E74370090A113 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		5C83D21E1D4E74370090A113 /* DevCourse_CoreData.xcdatamodeld */ = {
+		5C123EF41D4E7AAE005D0678 /* DevCourse_CoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5C83D21F1D4E74370090A113 /* DevCourse_CoreData.xcdatamodel */,
+				5C123EF51D4E7AAE005D0678 /* DevCourse_41_CoreData.xcdatamodel */,
 			);
-			currentVersion = 5C83D21F1D4E74370090A113 /* DevCourse_CoreData.xcdatamodel */;
+			currentVersion = 5C123EF51D4E7AAE005D0678 /* DevCourse_41_CoreData.xcdatamodel */;
 			path = DevCourse_CoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

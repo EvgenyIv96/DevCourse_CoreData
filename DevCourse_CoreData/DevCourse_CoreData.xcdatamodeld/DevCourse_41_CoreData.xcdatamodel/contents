@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
+    <entity name="EICourse" representedClassName="EICourse" parentEntity="EIObject" syncable="YES">
+        <attribute name="branch" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="eduPlatform" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EIEduPlatform" inverseName="courses" inverseEntity="EIEduPlatform" syncable="YES"/>
+        <relationship name="students" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EIUser" inverseName="studiedCourses" inverseEntity="EIUser" syncable="YES"/>
+        <relationship name="teacher" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EIUser" inverseName="taughtCourses" inverseEntity="EIUser" syncable="YES"/>
+    </entity>
+    <entity name="EIEduPlatform" representedClassName="EIEduPlatform" parentEntity="EIObject" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="courses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EICourse" inverseName="eduPlatform" inverseEntity="EICourse" syncable="YES"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EIUser" inverseName="eduPlatform" inverseEntity="EIUser" syncable="YES"/>
+    </entity>
+    <entity name="EIObject" isAbstract="YES" syncable="YES"/>
+    <entity name="EIUser" representedClassName="EIUser" parentEntity="EIObject" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="eduPlatform" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EIEduPlatform" inverseName="users" inverseEntity="EIEduPlatform" syncable="YES"/>
+        <relationship name="studiedCourses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EICourse" inverseName="students" inverseEntity="EICourse" syncable="YES"/>
+        <relationship name="taughtCourses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EICourse" inverseName="teacher" inverseEntity="EICourse" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="EICourse" positionX="-437" positionY="-399" width="128" height="133"/>
+        <element name="EIEduPlatform" positionX="-693" positionY="-529" width="128" height="88"/>
+        <element name="EIObject" positionX="-702" positionY="-637" width="128" height="43"/>
+        <element name="EIUser" positionX="-927" positionY="-387" width="128" height="133"/>
+    </elements>
+</model>
