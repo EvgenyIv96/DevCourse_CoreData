@@ -49,7 +49,7 @@ static const NSString* teachesCoursesSectionName = @"Taught Courses";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return [self.sectionsArray count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -180,7 +180,7 @@ static const NSString* teachesCoursesSectionName = @"Taught Courses";
         
     } */
     
-    } else if ([section.name isEqualToString:teachesCoursesSectionName]) {
+    } else {
         
         if (indexPath.row == 0) {
             
@@ -197,7 +197,13 @@ static const NSString* teachesCoursesSectionName = @"Taught Courses";
             
             [cell.addButton setAttributedTitle: nil forState: 0xffff];
             [cell.addButton setTitle: @"Add course" forState: UIControlStateNormal];
-            [cell.addButton addTarget:self action:@selector(addTaughtCourse:) forControlEvents:UIControlEventTouchUpInside];
+            
+            if ([section.name isEqualToString:teachesCoursesSectionName]) {
+                [cell.addButton addTarget:self action:@selector(addTaughtCourse:) forControlEvents:UIControlEventTouchUpInside];
+            } else if ([section.name isEqualToString:studiedCoursesSectionName]) {
+                [cell.addButton addTarget:self action:@selector(addStudiedCourse:) forControlEvents:UIControlEventTouchUpInside];
+            }
+
             
             return cell;
             
@@ -223,51 +229,6 @@ static const NSString* teachesCoursesSectionName = @"Taught Courses";
             return cell;
 
         }
-        
-    } else if ([section.name isEqualToString:studiedCoursesSectionName]) {
-        
-        if (indexPath.row == 0) {
-            
-            NSString* identifier = @"Add Cell";
-            
-            EIAddCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-            
-            if (!cell) {
-                
-                [tableView registerNib:[UINib nibWithNibName:@"EIAddCell" bundle:nil] forCellReuseIdentifier:identifier];
-                cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-                
-            }
-            
-            [cell.addButton setAttributedTitle: nil forState: 0xffff];
-            [cell.addButton setTitle: @"Add course" forState: UIControlStateNormal];
-            [cell.addButton addTarget:self action:@selector(addStudiedCourse:) forControlEvents:UIControlEventTouchUpInside];
-            
-            return cell;
-            
-        } else {
-            
-            EICourse* course = [section.dataArray objectAtIndex:indexPath.row - 1];
-            
-            NSString* identifier = @"Cell";
-            
-            UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-            
-            if (!cell) {
-                
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-                
-            }
-            
-            NSString* nameString = [NSString stringWithFormat:@"%@",course.name];
-            
-            cell.textLabel.text = nameString;
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            
-            return cell;
-            
-        }
-
     }
     
     return nil;
