@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 @class EIUser;
+@class EICourse;
 
 @interface EIDataManager : NSObject
 
@@ -19,8 +20,8 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
-- (void)addUserWithFirstName:(NSString *)firstName lastName:(NSString *)lastName andEmail:(NSString *)email;
-- (void)addCourseWithName:(NSString *)name subject:(NSString *)subject branch:(NSString *)branch;
+- (EIUser *)createNewUser;
+- (EICourse *)createNewCourse;
 
 + (EIDataManager *) sharedManager;
 

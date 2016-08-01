@@ -28,29 +28,23 @@
 
 #pragma mark - Data managment methods
 
-- (void)addUserWithFirstName:(NSString *)firstName lastName:(NSString *)lastName andEmail:(NSString *)email {
+- (EIUser *)createNewUser {
     
-    EIUser* addedUser = [NSEntityDescription insertNewObjectForEntityForName:@"EIUser" inManagedObjectContext:self.managedObjectContext];
+    EIUser* user = [NSEntityDescription insertNewObjectForEntityForName:@"EIUser" inManagedObjectContext:self.managedObjectContext];
     
-    addedUser.firstName = firstName;
-    addedUser.lastName = lastName;
-    addedUser.email = email;
-    
-    [self saveContext];
+    return user;
     
 }
 
-- (void)addCourseWithName:(NSString *)name subject:(NSString *)subject branch:(NSString *)branch {
+- (EICourse *)createNewCourse {
     
-    EICourse* addedCourse = [NSEntityDescription insertNewObjectForEntityForName:@"EICourse" inManagedObjectContext:self.managedObjectContext];
+    EICourse* course = [NSEntityDescription insertNewObjectForEntityForName:@"EICourse" inManagedObjectContext:self.managedObjectContext];
     
-    addedCourse.name = name;
-    addedCourse.subject = subject;
-    addedCourse.branch = branch;
-    
-    [self saveContext];
+    return course;
     
 }
+
+
 
 #pragma mark - Core Data stack
 
