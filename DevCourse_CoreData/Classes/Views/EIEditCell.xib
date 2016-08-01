@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Value Cell" id="TF2-eL-fqv" customClass="EIEditCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TF2-eL-fqv" id="WYu-O8-XbI">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94m-9k-woV" userLabel="label view">
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="43"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UdS-BL-WUq">
+                                <rect key="frame" x="7" y="8" width="113" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="UdS-BL-WUq" secondAttribute="trailing" id="5Sj-lQ-3CH"/>
+                            <constraint firstItem="UdS-BL-WUq" firstAttribute="leading" secondItem="94m-9k-woV" secondAttribute="leading" constant="7" id="7fc-bm-DeG"/>
+                            <constraint firstItem="UdS-BL-WUq" firstAttribute="top" secondItem="94m-9k-woV" secondAttribute="top" constant="8" id="FJn-Lb-S5h"/>
+                            <constraint firstAttribute="bottom" secondItem="UdS-BL-WUq" secondAttribute="bottom" constant="8" id="jQl-qC-TbE"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ACx-At-DDi" userLabel="field view">
+                        <rect key="frame" x="120" y="0.0" width="200" height="43"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RWp-7P-jh9">
+                                <rect key="frame" x="7" y="8" width="186" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="RWp-7P-jh9" firstAttribute="leading" secondItem="ACx-At-DDi" secondAttribute="leading" constant="7" id="7av-kp-uwH"/>
+                            <constraint firstAttribute="bottom" secondItem="RWp-7P-jh9" secondAttribute="bottom" constant="8" id="UT4-PC-uCX"/>
+                            <constraint firstItem="RWp-7P-jh9" firstAttribute="top" secondItem="ACx-At-DDi" secondAttribute="top" constant="8" id="g01-qA-Dmf"/>
+                            <constraint firstAttribute="trailing" secondItem="RWp-7P-jh9" secondAttribute="trailing" constant="7" id="lAB-n4-4TB"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="94m-9k-woV" firstAttribute="top" secondItem="WYu-O8-XbI" secondAttribute="top" id="Gv3-WV-kZd"/>
+                    <constraint firstAttribute="trailing" secondItem="ACx-At-DDi" secondAttribute="trailing" id="HTM-2N-jlR"/>
+                    <constraint firstAttribute="bottom" secondItem="ACx-At-DDi" secondAttribute="bottom" id="HhO-zp-Guz"/>
+                    <constraint firstItem="ACx-At-DDi" firstAttribute="top" secondItem="WYu-O8-XbI" secondAttribute="top" id="KCV-Uw-8sQ"/>
+                    <constraint firstAttribute="bottom" secondItem="94m-9k-woV" secondAttribute="bottom" id="Phi-sn-FqS"/>
+                    <constraint firstItem="94m-9k-woV" firstAttribute="leading" secondItem="WYu-O8-XbI" secondAttribute="leading" id="ZJb-nn-hej"/>
+                    <constraint firstItem="ACx-At-DDi" firstAttribute="leading" secondItem="94m-9k-woV" secondAttribute="trailing" id="aFz-DL-nMh"/>
+                    <constraint firstItem="94m-9k-woV" firstAttribute="width" secondItem="ACx-At-DDi" secondAttribute="width" multiplier="0.6" id="mev-ff-tQk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionLabel" destination="UdS-BL-WUq" id="xsL-aC-ohD"/>
+                <outlet property="valueField" destination="RWp-7P-jh9" id="TXX-m9-bAf"/>
+            </connections>
+            <point key="canvasLocation" x="321" y="118"/>
+        </tableViewCell>
+    </objects>
+</document>

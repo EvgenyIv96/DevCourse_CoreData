@@ -22,6 +22,11 @@
 
 - (EIUser *)createNewUser;
 - (EICourse *)createNewCourse;
+- (void)deleteUser:(EIUser *)user;
+- (void)removeUser:(EIUser *)user fromCourse:(EICourse *)course;
+- (void)cancelChanges;
+
+- (void)generateGeekbrainsPortal;
 
 + (EIDataManager *) sharedManager;
 

@@ -9,6 +9,7 @@
 #import "EIDataManager.h"
 #import "EIUser.h"
 #import "EICourse.h"
+#import "EIEduPlatform.h"
 
 @implementation EIDataManager
 
@@ -28,6 +29,10 @@
 
 #pragma mark - Data managment methods
 
+- (void)cancelChanges {
+    [self.managedObjectContext rollback];
+}
+
 - (EIUser *)createNewUser {
     
     EIUser* user = [NSEntityDescription insertNewObjectForEntityForName:@"EIUser" inManagedObjectContext:self.managedObjectContext];
@@ -42,6 +47,74 @@
     
     return course;
     
+}
+
+- (void)deleteUser:(EIUser *)user {
+    
+    [self.managedObjectContext deleteObject:user];
+    
+}
+
+- (void)removeUser:(EIUser *)user fromCourse:(EICourse *)course {
+    
+    if ([user isEqual:course.teacher]) {
+        
+        course.teacher = nil;
+        
+    } else if ([course.students containsObject:user]) {
+        
+        [course removeStudentsObject:user];
+        
+    }
+    
+}
+
+- (void)generateGeekbrainsPortal {
+    
+    EIEduPlatform* geekbrains = [NSEntityDescription insertNewObjectForEntityForName:@"EIEduPlatform" inManagedObjectContext:self.managedObjectContext];
+    
+    EICourse* ios= [NSEntityDescription insertNewObjectForEntityForName:@"EICourse" inManagedObjectContext:self.managedObjectContext];
+    
+    ios.name = @"iOS";
+    ios.subject = @"Swift programming";
+    ios.branch = @"Mobile development";
+    
+    EICourse* android = [NSEntityDescription insertNewObjectForEntityForName:@"EICourse" inManagedObjectContext:self.managedObjectContext];
+    
+    android.name = @"android";
+    android.subject = @"Java programming";
+    android.branch = @"Mobile development";
+    
+    EIUser* user1 = [NSEntityDescription insertNewObjectForEntityForName:@"EIUser" inManagedObjectContext:self.managedObjectContext]
+    ;
+    
+    EIUser* user2 = [NSEntityDescription insertNewObjectForEntityForName:@"EIUser" inManagedObjectContext:self.managedObjectContext]
+    ;
+
+    EIUser* user3 =[NSEntityDescription insertNewObjectForEntityForName:@"EIUser" inManagedObjectContext:self.managedObjectContext]
+    ;
+    
+    user1.firstName = @"User";
+    user1.lastName = @"1";
+    user1.email = @"user1@yandex.ru";
+    
+    user2.firstName = @"Gena";
+    user2.lastName = @"Pavanysyan";
+    user2.email = @"rozonor@mail.ru";
+    
+    user3.firstName = @"John";
+    user3.lastName = @"Sims";
+    user3.email = @"test@gmail.com";
+    
+    [user1 setStudiedCourses:[NSSet setWithObjects:ios, nil]];
+    [user1 setTaughtCourses:[NSSet setWithObjects:android, nil]];
+    
+    [user2 setTaughtCourses:[NSSet setWithObjects:ios, android, nil]];
+    
+    [user3 setStudiedCourses:[NSSet setWithObjects:ios, android, nil]];
+    
+    [geekbrains setCourses:[NSSet setWithObjects:ios, android, nil]];
+
 }
 
 

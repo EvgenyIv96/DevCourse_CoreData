@@ -9,7 +9,7 @@
 #import "EIUsersViewController.h"
 #import "EIDataManager.h"
 #import "EIUser.h"
-//#import "EIEditUserController.h"
+#import "EIUserEditController.h"
 
 @interface EIUsersViewController ()
 
@@ -20,6 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+   /* [[EIDataManager sharedManager] generateGeekbrainsPortal];
+    [[EIDataManager sharedManager] saveContext]; */
     
     [self configureNavigationBar];
     
@@ -93,21 +96,20 @@
 #pragma mark - Actions
 
 - (void) addAction:(id) sender {
-   /*
-    EIEditUserController* vc = [[EIEditUserController alloc] initWithNibName:@"EIEditUserController" bundle:nil];
     
+    EIUserEditController* vc = [[EIUserEditController alloc] initWithStyle:UITableViewStyleGrouped];
     UINavigationController* nc = [[UINavigationController alloc] initWithRootViewController:vc];
     
     nc.modalPresentationStyle = UIModalPresentationPopover;
     
-    [self presentViewController:nc animated:YES completion:nil]; */
+    [self presentViewController:nc animated:YES completion:nil];
 }
 
 #pragma mark - SWTableViewCell actions
 
 - (void)editButtonActionforCell:(SWTableViewCell *)cell {
     
- /*   EIEditUserController* vc = [[EIEditUserController alloc] initWithNibName:@"EIEditUserController" bundle:nil];
+    EIUserEditController* vc = [[EIUserEditController alloc] initWithStyle:UITableViewStyleGrouped];
     
     vc.user = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForCell:cell]];
     
@@ -117,7 +119,7 @@
     
     [cell hideUtilityButtonsAnimated:YES];
     
-    [self presentViewController:nc animated:YES completion:nil]; */
+    [self presentViewController:nc animated:YES completion:nil];
     
 }
 
