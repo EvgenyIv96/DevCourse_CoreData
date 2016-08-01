@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   /* [[EIDataManager sharedManager] generateGeekbrainsPortal];
+  /*  [[EIDataManager sharedManager] generateGeekbrainsPortal];
     [[EIDataManager sharedManager] saveContext]; */
     
     [self configureNavigationBar];

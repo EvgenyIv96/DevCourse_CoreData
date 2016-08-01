@@ -114,6 +114,7 @@
     [user3 setStudiedCourses:[NSSet setWithObjects:ios, android, nil]];
     
     [geekbrains setCourses:[NSSet setWithObjects:ios, android, nil]];
+    [geekbrains setUsers:[NSSet setWithObjects:user1, user2, user3, nil]];
 
 }
 

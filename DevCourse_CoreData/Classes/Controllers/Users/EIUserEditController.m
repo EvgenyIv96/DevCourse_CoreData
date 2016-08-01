@@ -13,6 +13,7 @@
 #import "EIEditSection.h"
 #import "EIEditCell.h"
 #import "EIAddCell.h"
+#import "EICoursesSelectionController.h"
 
 static const NSString* valueSectionName = @"User Info";
 static const NSString* studiedCoursesSectionName = @"Studied Courses";
@@ -21,6 +22,8 @@ static const NSString* teachesCoursesSectionName = @"Taught Courses";
 @interface EIUserEditController ()
 
 @property (strong, nonatomic) NSArray* sectionsArray;
+@property (weak, nonatomic) EICoursesSelectionController* studiesController;
+@property (weak, nonatomic) EICoursesSelectionController* taughtController;
 
 @end
 
@@ -266,6 +269,50 @@ static const NSString* teachesCoursesSectionName = @"Taught Courses";
     }   
 }
 
+#pragma mark - EIMultipieSelectionControllerDelegate
+
+- (void)controller:(EIMultipieSelectionController *)controller didChangeSelectedObjects:(NSArray *)selectedObjects {
+    
+    if ([controller isEqual:self.studiesController]) {
+        
+        [self.user setStudiedCourses:[NSSet setWithArray:selectedObjects]];
+        [self loadStudiedCoursesData];
+        
+        for (EIEditSection* section in self.sectionsArray) {
+            
+            if ([section.name isEqualToString:studiedCoursesSectionName]) {
+                
+                NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:[self.sectionsArray indexOfObject:section]];
+                [self.tableView beginUpdates];
+                [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.tableView endUpdates];
+            }
+            
+        }
+        
+        
+    } else if ([controller isEqual:self.taughtController]) {
+        
+        [self.user setTaughtCourses:[NSSet setWithArray:selectedObjects]];
+        [self loadTaughtCoursesData];
+        
+        for (EIEditSection* section in self.sectionsArray) {
+            
+            if ([section.name isEqualToString:teachesCoursesSectionName]) {
+                
+                NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:[self.sectionsArray indexOfObject:section]];
+                [self.tableView beginUpdates];
+                [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.tableView endUpdates];
+            }
+            
+        }
+
+    }
+    
+    
+    
+}
 
 #pragma mark - Data managment
 
@@ -333,14 +380,40 @@ static const NSString* teachesCoursesSectionName = @"Taught Courses";
 #pragma mark - Actions
 
 - (void)addStudiedCourse:(id)sender {
+
+   // NSLog(@"%@",[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask]);
     
-    NSLog(@"add studied course");
+    EICoursesSelectionController* selectionController = [[EICoursesSelectionController alloc] initWithStyle:UITableViewStylePlain];
+    
+    selectionController.navigationTitle = @"Studied courses";
+    
+    NSSet* set = [self.user valueForKeyPath:@"eduPlatform.courses"];
+    
+    selectionController.allObjects = [set allObjects];
+    selectionController.selectedObjects = [NSMutableArray arrayWithArray:[self.user.studiedCourses allObjects]];
+    selectionController.delegate = self;
+    
+    self.studiesController = selectionController;
+    
+    [self.navigationController pushViewController:selectionController animated:YES];
     
 }
 
 - (void)addTaughtCourse:(id)sender {
     
-    NSLog(@"add taught course");
+    EICoursesSelectionController* selectionController = [[EICoursesSelectionController alloc] initWithStyle:UITableViewStylePlain];
+    
+    selectionController.navigationTitle = @"Courses which are leads";
+    
+    NSSet* set = [self.user valueForKeyPath:@"eduPlatform.courses"];
+    
+    selectionController.allObjects = [set allObjects];
+    selectionController.selectedObjects = [NSMutableArray arrayWithArray:[self.user.taughtCourses allObjects]];
+    selectionController.delegate = self;
+    
+    self.taughtController = selectionController;
+    
+    [self.navigationController pushViewController:selectionController animated:YES];
     
 }
 
