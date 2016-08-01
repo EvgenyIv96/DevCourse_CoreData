@@ -236,7 +236,7 @@ static const NSString* teachesCoursesSectionName = @"Taught Courses";
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.section == 1 || indexPath.section == 2) {
+    if ((indexPath.section == 1 && indexPath.row != 0) || (indexPath.section == 2 && indexPath.row != 0)) {
         return YES;
     }
     
@@ -250,9 +250,14 @@ static const NSString* teachesCoursesSectionName = @"Taught Courses";
         
         EIEditSection* section = [self getSectionAtIndex:indexPath.section];
         
-        EICourse* course = [section.dataArray objectAtIndex:indexPath.row];
+        NSIndexPath* correctPath = [NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section];
+        
+        EICourse* course = [section.dataArray objectAtIndex:correctPath.row];
         
         [[EIDataManager sharedManager] removeUser:self.user fromCourse:course];
+        
+        [self loadStudiedCoursesData];
+        [self loadTaughtCoursesData];
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
