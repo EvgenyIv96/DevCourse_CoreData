@@ -389,7 +389,7 @@ static const NSString* teachesCoursesSectionName = @"Taught Courses";
     
     NSSet* set = [self.user valueForKeyPath:@"eduPlatform.courses"];
     
-    selectionController.allObjects = [set allObjects];
+    selectionController.allObjects = [[EIDataManager sharedManager] coursesWithOutTeachesForUser:self.user];
     selectionController.selectedObjects = [NSMutableArray arrayWithArray:[self.user.studiedCourses allObjects]];
     selectionController.delegate = self;
     
@@ -405,9 +405,9 @@ static const NSString* teachesCoursesSectionName = @"Taught Courses";
     
     selectionController.navigationTitle = @"Courses which are leads";
     
-    NSSet* set = [self.user valueForKeyPath:@"eduPlatform.courses"];
+   // NSSet* set = [self.user valueForKeyPath:@"eduPlatform.courses"];
     
-    selectionController.allObjects = [set allObjects];
+    selectionController.allObjects = [[EIDataManager sharedManager] coursesWithOutStudiesForUser:self.user];
     selectionController.selectedObjects = [NSMutableArray arrayWithArray:[self.user.taughtCourses allObjects]];
     selectionController.delegate = self;
     

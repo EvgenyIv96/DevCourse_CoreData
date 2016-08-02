@@ -29,6 +29,50 @@
 
 #pragma mark - Data managment methods
 
+- (NSArray *)coursesWithOutStudiesForUser:(EIUser *)user {
+    
+    NSError* error = nil;
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"NOT (students CONTAINS %@)", user];
+
+    NSFetchRequest* request = [self courseRequestWithPredicate:predicate];
+    
+    NSArray* courses = [self.managedObjectContext executeFetchRequest:request error:&error];
+    
+    for (EICourse* course in courses) {
+        NSLog(@"%@",course.name);
+        NSLog(@"Students:\n %@", [course.students allObjects]);
+    }
+    
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    
+    return courses;
+    
+}
+
+- (NSArray *)coursesWithOutTeachesForUser:(EIUser *)user {
+    
+    NSError* error = nil;
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"NOT (teacher == %@)", user];
+    
+    NSFetchRequest* request = [self courseRequestWithPredicate:predicate];
+    
+    NSArray* courses = [self.managedObjectContext executeFetchRequest:request error:&error];
+    
+    for (EICourse* course in courses) {
+        NSLog(@"%@",course.name);
+        NSLog(@"Students:\n %@", [course.students allObjects]);
+    }
+    
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    
+    return courses;
+
+}
+
 - (void)cancelChanges {
     [self.managedObjectContext rollback];
 }
@@ -118,7 +162,21 @@
 
 }
 
-
+- (NSFetchRequest *)courseRequestWithPredicate:(NSPredicate *)predicate {
+    
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription* description = [NSEntityDescription entityForName:@"EICourse" inManagedObjectContext:self.managedObjectContext];
+    
+    NSSortDescriptor* nameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    
+    [request setEntity:description];
+    [request setSortDescriptors:@[nameSortDescriptor]];
+    [request setPredicate:predicate];
+    
+    return request;
+    
+}
 
 #pragma mark - Core Data stack
 

@@ -21,6 +21,8 @@
 - (NSURL *)applicationDocumentsDirectory;
 
 - (EIUser *)createNewUser;
+- (NSArray *)coursesWithOutStudiesForUser:(EIUser *)user;
+- (NSArray *)coursesWithOutTeachesForUser:(EIUser *)user;
 - (EICourse *)createNewCourse;
 - (void)deleteUser:(EIUser *)user;
 - (void)removeUser:(EIUser *)user fromCourse:(EICourse *)course;
