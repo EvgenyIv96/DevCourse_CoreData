@@ -203,8 +203,10 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
             
             if ([section.name isEqualToString:teachesCoursesSectionName]) {
                 [cell.addButton addTarget:self action:@selector(addTaughtCourse:) forControlEvents:UIControlEventTouchUpInside];
+                cell.addButton.tag = 0;
             } else if ([section.name isEqualToString:studiedCoursesSectionName]) {
                 [cell.addButton addTarget:self action:@selector(addStudiedCourse:) forControlEvents:UIControlEventTouchUpInside];
+                cell.addButton.tag = 1;
             }
 
             
@@ -257,12 +259,17 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
         
         EICourse* course = [section.dataArray objectAtIndex:correctPath.row];
         
-        [[EIDataManager sharedManager] removeUser:self.user fromCourse:course];
+        if ([section.name isEqualToString:teachesCoursesSectionName]) {
+            [[EIDataManager sharedManager] removeTeacher:self.user fromCourse:course];
+            [self loadTaughtCoursesData];
+        } else if ([section.name isEqualToString:studiedCoursesSectionName]) {
+            [[EIDataManager sharedManager] removeStudent:self.user fromCourse:course];
+            [self loadStudiedCoursesData];
+        }
         
-        [self loadStudiedCoursesData];
-        [self loadTaughtCoursesData];
-        
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView beginUpdates];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView endUpdates];
         
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         
@@ -278,38 +285,41 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
         [self.user setStudiedCourses:[NSSet setWithArray:selectedObjects]];
         [self loadStudiedCoursesData];
         
-        for (EIEditSection* section in self.sectionsArray) {
-            
-            if ([section.name isEqualToString:studiedCoursesSectionName]) {
-                
-                NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:[self.sectionsArray indexOfObject:section]];
-                [self.tableView beginUpdates];
-                [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
-                [self.tableView endUpdates];
-            }
-            
-        }
-        
+//        for (EIEditSection* section in self.sectionsArray) {
+//            
+//            if ([section.name isEqualToString:studiedCoursesSectionName]) {
+//                
+//                NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:[self.sectionsArray indexOfObject:section]];
+//                [self.tableView beginUpdates];
+//                [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+//                [self.tableView endUpdates];
+//            }
+//            
+//        }
+//        
         
     } else if ([controller isEqual:self.taughtController]) {
         
         [self.user setTaughtCourses:[NSSet setWithArray:selectedObjects]];
         [self loadTaughtCoursesData];
         
-        for (EIEditSection* section in self.sectionsArray) {
-            
-            if ([section.name isEqualToString:teachesCoursesSectionName]) {
-                
-                NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:[self.sectionsArray indexOfObject:section]];
-                [self.tableView beginUpdates];
-                [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
-                [self.tableView endUpdates];
-            }
-            
-        }
+//        for (EIEditSection* section in self.sectionsArray) {
+//            
+//            if ([section.name isEqualToString:teachesCoursesSectionName]) {
+//                
+//                NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:[self.sectionsArray indexOfObject:section]];
+//                [self.tableView beginUpdates];
+//                [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+//                [self.tableView endUpdates];
+//            }
+//            
+//        }
 
     }
     
+  //  [self.tableView beginUpdates];
+    [self.tableView reloadData];
+    //[self.tableView endUpdates];
     
     
 }
@@ -399,6 +409,10 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
 
 - (void)addStudiedCourse:(id)sender {
 
+//    UIButton* senderButton = (UIButton *)sender;
+//    
+//    NSLog(@"%d", senderButton.tag);
+    
    // NSLog(@"%@",[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask]);
     
     EICoursesSelectionController* selectionController = [[EICoursesSelectionController alloc] initWithStyle:UITableViewStylePlain];
@@ -416,6 +430,10 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
 }
 
 - (void)addTaughtCourse:(id)sender {
+    
+//    UIButton* senderButton = (UIButton *)sender;
+//    
+//    NSLog(@"%d", senderButton.tag);
     
     EICoursesSelectionController* selectionController = [[EICoursesSelectionController alloc] initWithStyle:UITableViewStylePlain];
     

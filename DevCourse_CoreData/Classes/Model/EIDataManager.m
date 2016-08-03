@@ -32,7 +32,7 @@
 - (NSArray *)coursesWithOutStudiesForUser:(EIUser *)user {
     
     NSError* error = nil;
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"NOT(ANY students CONTAINS %@)", user];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"NOT(SELF IN %@.studiedCourses)", user];
 
     NSFetchRequest* request = [self courseRequestWithPredicate:predicate];
     
@@ -54,7 +54,7 @@
 - (NSArray *)coursesWithOutTeachesForUser:(EIUser *)user {
     
     NSError* error = nil;
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"teacher!=%@", user];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"teacher=nil OR teacher!=%@", user];
     
     NSFetchRequest* request = [self courseRequestWithPredicate:predicate];
     
@@ -103,19 +103,15 @@
     
 }
 
-- (void)removeUser:(EIUser *)user fromCourse:(EICourse *)course {
-    
-    if ([user isEqual:course.teacher]) {
-        
-        course.teacher = nil;
-        
-    } else if ([course.students containsObject:user]) {
-        
-        [course removeStudentsObject:user];
-        
-    }
-    
+- (void)removeTeacher:(EIUser *)user fromCourse:(EICourse *)course {
+    course.teacher = nil;
 }
+
+- (void)removeStudent:(EIUser *)user fromCourse:(EICourse *)course {
+    [course removeStudentsObject:user];
+}
+
+
 
 - (void)generateGeekbrainsPortal {
     

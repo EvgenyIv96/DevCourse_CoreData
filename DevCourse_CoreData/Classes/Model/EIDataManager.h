@@ -25,7 +25,8 @@
 - (NSArray *)coursesWithOutTeachesForUser:(EIUser *)user;
 - (EICourse *)createNewCourse;
 - (void)deleteUser:(EIUser *)user;
-- (void)removeUser:(EIUser *)user fromCourse:(EICourse *)course;
+- (void)removeTeacher:(EIUser *)user fromCourse:(EICourse *)course;
+- (void)removeStudent:(EIUser *)user fromCourse:(EICourse *)course;
 - (void)cancelChanges;
 
 - (void)generateGeekbrainsPortal;
