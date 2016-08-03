@@ -51,7 +51,7 @@
     
 }
 
-- (NSArray *)coursesWithOutTeachesForUser:(EIUser *)user {
+- (NSArray *)coursesWithOutTeachersForUser:(EIUser *)user {
     
     NSError* error = nil;
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"teacher=nil OR teacher!=%@", user];
@@ -71,6 +71,23 @@
     
     return courses;
 
+}
+
+- (NSArray *)usersWithOutTeacherForCourse:(EICourse *)course {
+    
+    NSError* error = nil;
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"NOT(SELF = %@.teacher)",course];
+    
+    NSFetchRequest* request = [self userRequestWithPredicate:predicate];
+    
+    NSArray* users = [self.managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    
+    return users;
+    
 }
 
 - (void)cancelChanges {
@@ -93,6 +110,10 @@
     
     EICourse* course = [NSEntityDescription insertNewObjectForEntityForName:@"EICourse" inManagedObjectContext:self.managedObjectContext];
     
+    course.name = @"";
+    course.subject = @"";
+    course.branch = @"";
+    
     return course;
     
 }
@@ -100,6 +121,12 @@
 - (void)deleteUser:(EIUser *)user {
     
     [self.managedObjectContext deleteObject:user];
+    
+}
+
+- (void)deleteCourse:(EICourse *)course {
+    
+    [self.managedObjectContext deleteObject:course];
     
 }
 
@@ -172,6 +199,23 @@
     
     [request setEntity:description];
     [request setSortDescriptors:@[nameSortDescriptor]];
+    [request setPredicate:predicate];
+    
+    return request;
+    
+}
+
+- (NSFetchRequest *)userRequestWithPredicate:(NSPredicate *)predicate {
+    
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription* description = [NSEntityDescription entityForName:@"EIUser" inManagedObjectContext:self.managedObjectContext];
+    
+    NSSortDescriptor* secondNameDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES];
+    NSSortDescriptor* firstNameDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"firstName" ascending:YES];
+    
+    [request setSortDescriptors:@[secondNameDescriptor, firstNameDescriptor]];
+    [request setEntity:description];
     [request setPredicate:predicate];
     
     return request;

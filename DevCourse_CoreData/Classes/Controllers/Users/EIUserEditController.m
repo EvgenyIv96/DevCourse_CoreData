@@ -32,14 +32,12 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self configurateNavigationBar];
     [self loadAllData];
-    
+    [self configurateNavigationBar];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - UITableViewDataSource
@@ -93,95 +91,6 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
         cell.valueField.text = [dataDictionary objectForKey:key];
         
         return cell;
-        
-  /*  } else if ([section.name isEqualToString:teachesCoursesSectionName]) {
-        
-        EIUser* teacher = [section.dataArray firstObject];
-        
-        if (!teacher) {
-            
-            static NSString* identifier = @"Add Cell";
-            
-            EIAddCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-            
-            if (!cell) {
-                
-                [tableView registerNib:@"EIAddCell" forCellReuseIdentifier:identifier];
-                cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-                
-            }
-            
-            [cell.addButton setAttributedTitle: nil forState: 0xffff];
-            [cell.addButton setTitle: @"Add teacher" forState: UIControlStateNormal];
-            [cell.addButton addTarget:self action:@selector(addTeacherAction:) forControlEvents:UIControlEventTouchUpInside];
-            
-            return cell;
-            
-        } else {
-            
-            static NSString* identifier = @"Cell";
-            
-            UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-            
-            if (!cell) {
-                
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-                
-            }
-            
-            NSString* nameString = [NSString stringWithFormat:@"%@ %@", teacher.firstName, teacher.lastName];
-            
-            cell.textLabel.text = nameString;
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            
-            return cell;
-        }
-        
-    } else if ([section.name isEqualToString:studiedCoursesSectionName]) {
-        
-        if (indexPath.row == 0) {
-            
-            static NSString* identifier = @"Add Cell";
-            
-            EIAddCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-            
-            if (!cell) {
-                
-                [tableView registerNib:@"EIAddCell" forCellReuseIdentifier:identifier];
-                cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-                
-            }
-            
-            [cell.addButton setAttributedTitle: nil forState: 0xffff];
-            [cell.addButton setTitle: @"Add student" forState: UIControlStateNormal];
-            [cell.addButton addTarget:self action:@selector(addStudentAction:) forControlEvents:UIControlEventTouchUpInside];
-            
-            return cell;
-            
-        } else {
-            
-            EIUser* student = [section.dataArray objectAtIndex:indexPath.row - 1];
-            
-            static NSString* identifier = @"Cell";
-            
-            UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-            
-            if (!cell) {
-                
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-                
-            }
-            
-            NSString* nameString = [NSString stringWithFormat:@"%@ %@", student.firstName, student.lastName];
-            
-            cell.textLabel.text = nameString;
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            
-            return cell;
-            
-        }
-        
-    } */
     
     } else {
         
@@ -285,42 +194,14 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
         [self.user setStudiedCourses:[NSSet setWithArray:selectedObjects]];
         [self loadStudiedCoursesData];
         
-//        for (EIEditSection* section in self.sectionsArray) {
-//            
-//            if ([section.name isEqualToString:studiedCoursesSectionName]) {
-//                
-//                NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:[self.sectionsArray indexOfObject:section]];
-//                [self.tableView beginUpdates];
-//                [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
-//                [self.tableView endUpdates];
-//            }
-//            
-//        }
-//        
-        
     } else if ([controller isEqual:self.taughtController]) {
         
         [self.user setTaughtCourses:[NSSet setWithArray:selectedObjects]];
         [self loadTaughtCoursesData];
-        
-//        for (EIEditSection* section in self.sectionsArray) {
-//            
-//            if ([section.name isEqualToString:teachesCoursesSectionName]) {
-//                
-//                NSIndexSet* indexSet = [NSIndexSet indexSetWithIndex:[self.sectionsArray indexOfObject:section]];
-//                [self.tableView beginUpdates];
-//                [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
-//                [self.tableView endUpdates];
-//            }
-//            
-//        }
 
     }
     
-  //  [self.tableView beginUpdates];
     [self.tableView reloadData];
-    //[self.tableView endUpdates];
-    
     
 }
 
@@ -345,24 +226,10 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
 
 - (void)loadUserValuesData {
     
-//    NSString* emptyString = @"";
-    
     NSString* firstName = self.user.firstName;
     NSString* lastName = self.user.lastName;
     NSString* email = self.user.email;
     
-//    if (!firstName) {
-//        firstName = emptyString;
-//    }
-//    
-//    if (!lastName) {
-//        lastName = emptyString;
-//    }
-//    
-//    if (!email) {
-//        email = emptyString;
-//    }
-//    
     NSDictionary* firstNameDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
                                         firstName, @"First name",nil];
     
@@ -409,17 +276,11 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
 
 - (void)addStudiedCourse:(id)sender {
 
-//    UIButton* senderButton = (UIButton *)sender;
-//    
-//    NSLog(@"%d", senderButton.tag);
-    
-   // NSLog(@"%@",[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask]);
-    
     EICoursesSelectionController* selectionController = [[EICoursesSelectionController alloc] initWithStyle:UITableViewStylePlain];
     
     selectionController.navigationTitle = @"Studied courses";
     
-    selectionController.allObjects = [[EIDataManager sharedManager] coursesWithOutTeachesForUser:self.user];
+    selectionController.allObjects = [[EIDataManager sharedManager] coursesWithOutTeachersForUser:self.user];
     selectionController.selectedObjects = [NSMutableArray arrayWithArray:[self.user.studiedCourses allObjects]];
     selectionController.delegate = self;
     
@@ -431,15 +292,9 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
 
 - (void)addTaughtCourse:(id)sender {
     
-//    UIButton* senderButton = (UIButton *)sender;
-//    
-//    NSLog(@"%d", senderButton.tag);
-    
     EICoursesSelectionController* selectionController = [[EICoursesSelectionController alloc] initWithStyle:UITableViewStylePlain];
     
     selectionController.navigationTitle = @"Courses which are leads";
-    
-   // NSSet* set = [self.user valueForKeyPath:@"eduPlatform.courses"];
     
     selectionController.allObjects = [[EIDataManager sharedManager] coursesWithOutStudiesForUser:self.user];
     selectionController.selectedObjects = [NSMutableArray arrayWithArray:[self.user.taughtCourses allObjects]];
@@ -555,6 +410,14 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
 }
 
 - (void)configurateNavigationBar {
+    
+    NSString* name = [NSString stringWithFormat:@"%@ %@", self.user.firstName, self.user.lastName];
+    
+    if (![name isEqualToString:@" "]) {
+        self.navigationItem.title = name;
+    } else {
+        self.navigationItem.title = @"New user";
+    }
     
     UIBarButtonItem* closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closeAction:)];
     

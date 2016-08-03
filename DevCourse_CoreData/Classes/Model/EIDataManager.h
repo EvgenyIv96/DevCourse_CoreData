@@ -22,9 +22,11 @@
 
 - (EIUser *)createNewUser;
 - (NSArray *)coursesWithOutStudiesForUser:(EIUser *)user;
-- (NSArray *)coursesWithOutTeachesForUser:(EIUser *)user;
+- (NSArray *)coursesWithOutTeachersForUser:(EIUser *)user;
+- (NSArray *)usersWithOutTeacherForCourse:(EICourse *)course;
 - (EICourse *)createNewCourse;
 - (void)deleteUser:(EIUser *)user;
+- (void)deleteCourse:(EICourse *)course;
 - (void)removeTeacher:(EIUser *)user fromCourse:(EICourse *)course;
 - (void)removeStudent:(EIUser *)user fromCourse:(EICourse *)course;
 - (void)cancelChanges;

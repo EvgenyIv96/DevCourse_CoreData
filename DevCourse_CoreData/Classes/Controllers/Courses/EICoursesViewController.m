@@ -7,7 +7,7 @@
 //
 
 #import "EICoursesViewController.h"
-//#import "EIEditCourseController.h"
+#import "EICourseEditController.h"
 #import "EICourse.h"
 
 @implementation EICoursesViewController
@@ -84,21 +84,21 @@
 
 - (void) addAction:(id) sender {
     
-  /*  EIEditCourseController* vc = [[EIEditCourseController alloc] initWithNibName:@"EIEditCourseController" bundle:nil];
+    EICourseEditController* vc = [[EICourseEditController alloc] initWithStyle:UITableViewStyleGrouped];
     
     UINavigationController* nc = [[UINavigationController alloc] initWithRootViewController:vc];
     
     nc.modalPresentationStyle = UIModalPresentationPopover;
     
-    [self presentViewController:nc animated:YES completion:nil]; */
+    [self presentViewController:nc animated:YES completion:nil];
 }
 
 
 #pragma mark - SWTableViewCell actions
 
 - (void)editButtonActionforCell:(SWTableViewCell *)cell {
-    /*
-    EIEditCourseController* vc = [[EIEditCourseController alloc] initWithNibName:@"EIEditCourseController" bundle:nil];
+    
+    EICourseEditController* vc = [[EICourseEditController alloc] initWithStyle:UITableViewStyleGrouped];
     
     vc.course = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForCell:cell]];
     
@@ -106,9 +106,9 @@
     
     nc.modalPresentationStyle = UIModalPresentationPopover;
     
-    [cell hideUtilityButtonsAnimated:YES];
+    [self presentViewController:nc animated:YES completion:nil];
     
-    [self presentViewController:nc animated:YES completion:nil];*/
+    [cell hideUtilityButtonsAnimated:YES];
     
 }
 

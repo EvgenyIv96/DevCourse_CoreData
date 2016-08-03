@@ -30,6 +30,9 @@
 		5C123F7B1D4FC972005D0678 /* EISigleSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F7A1D4FC972005D0678 /* EISigleSelectionController.m */; };
 		5C123F7E1D4FCDE6005D0678 /* EIMultipieSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F7D1D4FCDE6005D0678 /* EIMultipieSelectionController.m */; };
 		5C123F811D4FCFA9005D0678 /* EICoursesSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F801D4FCFA9005D0678 /* EICoursesSelectionController.m */; };
+		5C20ADAD1D52381D003DC321 /* EICourseEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C20ADAC1D52381D003DC321 /* EICourseEditController.m */; };
+		5C20ADB01D5240A1003DC321 /* EIStudentsSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C20ADAF1D5240A1003DC321 /* EIStudentsSelectionController.m */; };
+		5C20ADB31D5240B6003DC321 /* EITeacherSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C20ADB21D5240B6003DC321 /* EITeacherSelectionController.m */; };
 		5C83D2141D4E74370090A113 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83D2131D4E74370090A113 /* main.m */; };
 		5C83D2171D4E74370090A113 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83D2161D4E74370090A113 /* AppDelegate.m */; };
 		5C83D2221D4E74370090A113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C83D2211D4E74370090A113 /* Assets.xcassets */; };
@@ -79,8 +82,14 @@
 		5C123F7A1D4FC972005D0678 /* EISigleSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EISigleSelectionController.m; sourceTree = "<group>"; };
 		5C123F7C1D4FCDE6005D0678 /* EIMultipieSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EIMultipieSelectionController.h; sourceTree = "<group>"; };
 		5C123F7D1D4FCDE6005D0678 /* EIMultipieSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EIMultipieSelectionController.m; sourceTree = "<group>"; };
-		5C123F7F1D4FCFA9005D0678 /* EICoursesSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EICoursesSelectionController.h; sourceTree = "<group>"; };
-		5C123F801D4FCFA9005D0678 /* EICoursesSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EICoursesSelectionController.m; sourceTree = "<group>"; };
+		5C123F7F1D4FCFA9005D0678 /* EICoursesSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EICoursesSelectionController.h; path = ../EICoursesSelectionController.h; sourceTree = "<group>"; };
+		5C123F801D4FCFA9005D0678 /* EICoursesSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EICoursesSelectionController.m; path = ../EICoursesSelectionController.m; sourceTree = "<group>"; };
+		5C20ADAB1D52381D003DC321 /* EICourseEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EICourseEditController.h; sourceTree = "<group>"; };
+		5C20ADAC1D52381D003DC321 /* EICourseEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EICourseEditController.m; sourceTree = "<group>"; };
+		5C20ADAE1D5240A1003DC321 /* EIStudentsSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EIStudentsSelectionController.h; sourceTree = "<group>"; };
+		5C20ADAF1D5240A1003DC321 /* EIStudentsSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EIStudentsSelectionController.m; sourceTree = "<group>"; };
+		5C20ADB11D5240B6003DC321 /* EITeacherSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EITeacherSelectionController.h; sourceTree = "<group>"; };
+		5C20ADB21D5240B6003DC321 /* EITeacherSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EITeacherSelectionController.m; sourceTree = "<group>"; };
 		5C83D20F1D4E74370090A113 /* DevCourse_CoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevCourse_CoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C83D2131D4E74370090A113 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5C83D2151D4E74370090A113 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -133,8 +142,6 @@
 				5C123F7A1D4FC972005D0678 /* EISigleSelectionController.m */,
 				5C123F7C1D4FCDE6005D0678 /* EIMultipieSelectionController.h */,
 				5C123F7D1D4FCDE6005D0678 /* EIMultipieSelectionController.m */,
-				5C123F7F1D4FCFA9005D0678 /* EICoursesSelectionController.h */,
-				5C123F801D4FCFA9005D0678 /* EICoursesSelectionController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -153,6 +160,12 @@
 			children = (
 				5C123F011D4E7CF3005D0678 /* EICoursesViewController.h */,
 				5C123F021D4E7CF3005D0678 /* EICoursesViewController.m */,
+				5C20ADAB1D52381D003DC321 /* EICourseEditController.h */,
+				5C20ADAC1D52381D003DC321 /* EICourseEditController.m */,
+				5C20ADAE1D5240A1003DC321 /* EIStudentsSelectionController.h */,
+				5C20ADAF1D5240A1003DC321 /* EIStudentsSelectionController.m */,
+				5C20ADB11D5240B6003DC321 /* EITeacherSelectionController.h */,
+				5C20ADB21D5240B6003DC321 /* EITeacherSelectionController.m */,
 			);
 			path = Courses;
 			sourceTree = "<group>";
@@ -166,6 +179,8 @@
 				5C123F2C1D4F5C09005D0678 /* EIUserEditController.m */,
 				5CAAAE5F1D50EACA008DA0C2 /* EITeachersViewController.h */,
 				5CAAAE601D50EACA008DA0C2 /* EITeachersViewController.m */,
+				5C123F7F1D4FCFA9005D0678 /* EICoursesSelectionController.h */,
+				5C123F801D4FCFA9005D0678 /* EICoursesSelectionController.m */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -403,8 +418,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C83D2171D4E74370090A113 /* AppDelegate.m in Sources */,
+				5C20ADB31D5240B6003DC321 /* EITeacherSelectionController.m in Sources */,
 				5C123F261D4E7CF3005D0678 /* EIDataManager.m in Sources */,
 				5C123F1F1D4E7CF3005D0678 /* EIUsersViewController.m in Sources */,
+				5C20ADAD1D52381D003DC321 /* EICourseEditController.m in Sources */,
 				5C123F7E1D4FCDE6005D0678 /* EIMultipieSelectionController.m in Sources */,
 				5C123F741D4F630C005D0678 /* EIEditCell.m in Sources */,
 				5C123F301D4F5C99005D0678 /* EIEditSection.m in Sources */,
@@ -413,6 +430,7 @@
 				5C123F201D4E7CF3005D0678 /* EICourse+CoreDataProperties.m in Sources */,
 				5C123EF61D4E7AAE005D0678 /* DevCourse_CoreData.xcdatamodeld in Sources */,
 				5C123F211D4E7CF3005D0678 /* EICourse.m in Sources */,
+				5C20ADB01D5240A1003DC321 /* EIStudentsSelectionController.m in Sources */,
 				5C123F811D4FCFA9005D0678 /* EICoursesSelectionController.m in Sources */,
 				5C123F1E1D4E7CF3005D0678 /* EIMainTabBarController.m in Sources */,
 				5C123F231D4E7CF3005D0678 /* EIEduPlatform.m in Sources */,

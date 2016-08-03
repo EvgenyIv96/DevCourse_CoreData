@@ -116,9 +116,9 @@
     
     nc.modalPresentationStyle = UIModalPresentationPopover;
     
-    [cell hideUtilityButtonsAnimated:YES];
-    
     [self presentViewController:nc animated:YES completion:nil];
+    
+    [cell hideUtilityButtonsAnimated:YES];
     
 }
 

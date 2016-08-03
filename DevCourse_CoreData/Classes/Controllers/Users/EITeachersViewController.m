@@ -23,7 +23,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - fetchedResultsController
@@ -74,21 +73,30 @@
     
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString* identifier = @"Cell";
+    
+    UITableViewCell* cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:identifier];
+    
+    if (!cell) {
+        
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+        
+    }
+    
+    NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    
+    [self configureCell:cell withObject:object];
+    
+    return cell;
+    
+}
 
 
 #pragma mark - Table view cell
 
 -(void) configureCell:(UITableViewCell *)cell withObject: (id) object {
-    
-  /*  if ([object isKindOfClass:[EIUser class]]) {
-        
-        EIUser* teacher = (EIUser *)object;
-        
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", teacher.firstName, teacher.lastName];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%lu", [teacher.taughtCourses count]];
-        
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    } */
     
     if ([object isKindOfClass:[EICourse class]]) {
      

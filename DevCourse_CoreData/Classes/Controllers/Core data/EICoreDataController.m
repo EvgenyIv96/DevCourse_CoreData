@@ -119,6 +119,11 @@
     
 }
 
+
+- (BOOL)swipeableTableViewCellShouldHideUtilityButtonsOnSwipe:(SWTableViewCell *)cell {
+    return YES;
+}
+
 #pragma mark - SWTableViewCell buttons
 
 - (NSArray *)rightCellButtons {
