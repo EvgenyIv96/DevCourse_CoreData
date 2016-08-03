@@ -60,7 +60,6 @@
         }
     
         return _fetchedResultsController;
-    
 }
 
 #pragma mark - Table view cell

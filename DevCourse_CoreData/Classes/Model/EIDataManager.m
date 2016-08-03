@@ -32,9 +32,9 @@
 - (NSArray *)coursesWithOutStudiesForUser:(EIUser *)user {
     
     NSError* error = nil;
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"NOT (students CONTAINS %@)", user];
+ //   NSPredicate* predicate = [NSPredicate predicateWithFormat:@"NOT (students CONTAINS %@)", user];
 
-    NSFetchRequest* request = [self courseRequestWithPredicate:predicate];
+    NSFetchRequest* request = [self courseRequestWithPredicate:nil];
     
     NSArray* courses = [self.managedObjectContext executeFetchRequest:request error:&error];
     
@@ -54,7 +54,7 @@
 - (NSArray *)coursesWithOutTeachesForUser:(EIUser *)user {
     
     NSError* error = nil;
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"NOT (teacher == %@)", user];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"teacher!=%@", user];
     
     NSFetchRequest* request = [self courseRequestWithPredicate:predicate];
     
@@ -80,6 +80,10 @@
 - (EIUser *)createNewUser {
     
     EIUser* user = [NSEntityDescription insertNewObjectForEntityForName:@"EIUser" inManagedObjectContext:self.managedObjectContext];
+    
+    user.firstName = @"";
+    user.lastName = @"";
+    user.email = @"";
     
     return user;
     

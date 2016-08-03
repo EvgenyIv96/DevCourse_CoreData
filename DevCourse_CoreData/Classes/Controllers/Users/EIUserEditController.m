@@ -15,9 +15,9 @@
 #import "EIAddCell.h"
 #import "EICoursesSelectionController.h"
 
-static const NSString* valueSectionName = @"User Info";
-static const NSString* studiedCoursesSectionName = @"Studied Courses";
-static const NSString* teachesCoursesSectionName = @"Taught Courses";
+static NSString* const valueSectionName = @"User Info";
+static NSString* const studiedCoursesSectionName = @"Studied Courses";
+static NSString* const teachesCoursesSectionName = @"Taught Courses";
 
 @interface EIUserEditController ()
 
@@ -335,15 +335,33 @@ static const NSString* teachesCoursesSectionName = @"Taught Courses";
 
 - (void)loadUserValuesData {
     
+//    NSString* emptyString = @"";
+    
+    NSString* firstName = self.user.firstName;
+    NSString* lastName = self.user.lastName;
+    NSString* email = self.user.email;
+    
+//    if (!firstName) {
+//        firstName = emptyString;
+//    }
+//    
+//    if (!lastName) {
+//        lastName = emptyString;
+//    }
+//    
+//    if (!email) {
+//        email = emptyString;
+//    }
+//    
     NSDictionary* firstNameDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                        self.user.firstName, @"First name",nil];
+                                        firstName, @"First name",nil];
     
     NSDictionary* lastNameDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                        self.user.lastName, @"Last name", nil];
+                                        lastName, @"Last name", nil];
     
     
     NSDictionary* emailDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                     self.user.email, @"Email",nil];
+                                     email, @"Email",nil];
     
     EIEditSection* valuesSection = [[EIEditSection alloc] init];
     valuesSection.name = valueSectionName;
@@ -386,8 +404,6 @@ static const NSString* teachesCoursesSectionName = @"Taught Courses";
     EICoursesSelectionController* selectionController = [[EICoursesSelectionController alloc] initWithStyle:UITableViewStylePlain];
     
     selectionController.navigationTitle = @"Studied courses";
-    
-    NSSet* set = [self.user valueForKeyPath:@"eduPlatform.courses"];
     
     selectionController.allObjects = [[EIDataManager sharedManager] coursesWithOutTeachesForUser:self.user];
     selectionController.selectedObjects = [NSMutableArray arrayWithArray:[self.user.studiedCourses allObjects]];
@@ -448,6 +464,16 @@ static const NSString* teachesCoursesSectionName = @"Taught Courses";
 
 - (void)saveAction:(id)sender {
     
+    EIEditCell* firstNameCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+
+    EIEditCell* lastNameCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    
+    EIEditCell* emailCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    
+    self.user.firstName = firstNameCell.valueField.text;
+    self.user.lastName = lastNameCell.valueField.text;
+    self.user.email = emailCell.valueField.text;
+    
     [[EIDataManager sharedManager] saveContext];
     
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -491,8 +517,16 @@ static const NSString* teachesCoursesSectionName = @"Taught Courses";
 - (BOOL)isEmptyUser {
     
     BOOL isEmpty = YES;
+    
+    EIEditCell* firstNameCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    EIEditCell* lastNameCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    
+    EIEditCell* emailCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    
+    NSString* emptyString = @"";
 
-    if (self.user.firstName || self.user.lastName || self.user.email || [self.user.studiedCourses count] > 0 || [self.user.taughtCourses count] > 0) {
+    if (![firstNameCell.valueField.text isEqualToString:emptyString] || ![lastNameCell.valueField.text isEqualToString:emptyString] || ![emailCell.valueField.text isEqualToString:emptyString] || [self.user.studiedCourses count] > 0 || [self.user.taughtCourses count] > 0) {
         
         isEmpty = NO;
         

@@ -78,7 +78,7 @@
     
     if (!cell) {
         
-        cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
         
         cell.delegate = self;
         cell.rightUtilityButtons = [self rightCellButtons];
@@ -156,7 +156,7 @@
 
 
 #pragma mark - NSFetchedResultsControllerDelegate
-
+/*
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView beginUpdates];
@@ -200,7 +200,7 @@
             
         case NSFetchedResultsChangeMove:
             [tableView moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] withObject:anObject];
+           // [self configureCell:[tableView cellForRowAtIndexPath:indexPath] withObject:anObject];
             break;
     }
 }
@@ -208,6 +208,13 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView endUpdates];
+}*/
+
+// Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    // In the simplest, most efficient, case, reload the table view.
+    [self.tableView reloadData];
 }
 
 

@@ -9,6 +9,7 @@
 #import "EIMainTabBarController.h"
 #import "EIUsersViewController.h"
 #import "EICoursesViewController.h"
+#import "EITeachersViewController.h"
 
 @interface EIMainTabBarController ()
 
@@ -31,7 +32,14 @@
     
     coursesNavContr.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Courses" image:nil tag:1];
     
-    [self setViewControllers:@[usersNavContr, coursesNavContr]];
+    EITeachersViewController* teachetsController = [[EITeachersViewController alloc] initWithNibName:@"EICoreDataController" bundle:nil];
+    
+    UINavigationController* teachersNavController = [[UINavigationController alloc] initWithRootViewController:teachetsController];
+    
+    teachersNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Teachers" image:nil tag:2];
+    
+    
+    [self setViewControllers:@[usersNavContr, coursesNavContr, teachersNavController]];
     [self setSelectedIndex:0];
     
     

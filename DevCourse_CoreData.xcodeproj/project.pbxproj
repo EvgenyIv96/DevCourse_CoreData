@@ -34,6 +34,7 @@
 		5C83D2171D4E74370090A113 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83D2161D4E74370090A113 /* AppDelegate.m */; };
 		5C83D2221D4E74370090A113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C83D2211D4E74370090A113 /* Assets.xcassets */; };
 		5C83D2251D4E74370090A113 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C83D2231D4E74370090A113 /* LaunchScreen.storyboard */; };
+		5CAAAE611D50EACA008DA0C2 /* EITeachersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAAAE601D50EACA008DA0C2 /* EITeachersViewController.m */; };
 		BE6545E4B79EA9B0B0ACA6FF /* libPods-DevCourse_CoreData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE76DCA79BBE756B21C29F2 /* libPods-DevCourse_CoreData.a */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,8 @@
 		5C83D2211D4E74370090A113 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C83D2241D4E74370090A113 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C83D2261D4E74370090A113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CAAAE5F1D50EACA008DA0C2 /* EITeachersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EITeachersViewController.h; sourceTree = "<group>"; };
+		5CAAAE601D50EACA008DA0C2 /* EITeachersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EITeachersViewController.m; sourceTree = "<group>"; };
 		A61122338A305C821D1F02F0 /* Pods-DevCourse_CoreData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevCourse_CoreData.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DevCourse_CoreData/Pods-DevCourse_CoreData.debug.xcconfig"; sourceTree = "<group>"; };
 		CCE76DCA79BBE756B21C29F2 /* libPods-DevCourse_CoreData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DevCourse_CoreData.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -161,6 +164,8 @@
 				5C123F071D4E7CF3005D0678 /* EIUsersViewController.m */,
 				5C123F2B1D4F5C09005D0678 /* EIUserEditController.h */,
 				5C123F2C1D4F5C09005D0678 /* EIUserEditController.m */,
+				5CAAAE5F1D50EACA008DA0C2 /* EITeachersViewController.h */,
+				5CAAAE601D50EACA008DA0C2 /* EITeachersViewController.m */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -418,6 +423,7 @@
 				5C123F251D4E7CF3005D0678 /* EIUser.m in Sources */,
 				5C123F7B1D4FC972005D0678 /* EISigleSelectionController.m in Sources */,
 				5C123F221D4E7CF3005D0678 /* EIEduPlatform+CoreDataProperties.m in Sources */,
+				5CAAAE611D50EACA008DA0C2 /* EITeachersViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
