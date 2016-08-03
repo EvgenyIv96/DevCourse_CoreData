@@ -32,9 +32,9 @@
 - (NSArray *)coursesWithOutStudiesForUser:(EIUser *)user {
     
     NSError* error = nil;
- //   NSPredicate* predicate = [NSPredicate predicateWithFormat:@"NOT (students CONTAINS %@)", user];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"NOT(ANY students CONTAINS %@)", user];
 
-    NSFetchRequest* request = [self courseRequestWithPredicate:nil];
+    NSFetchRequest* request = [self courseRequestWithPredicate:predicate];
     
     NSArray* courses = [self.managedObjectContext executeFetchRequest:request error:&error];
     
@@ -62,7 +62,7 @@
     
     for (EICourse* course in courses) {
         NSLog(@"%@",course.name);
-        NSLog(@"Students:\n %@", [course.students allObjects]);
+        NSLog(@"Teachers:\n %@", [course.students allObjects]);
     }
     
     if (error) {
@@ -157,7 +157,7 @@
     [user1 setStudiedCourses:[NSSet setWithObjects:ios, nil]];
     [user1 setTaughtCourses:[NSSet setWithObjects:android, nil]];
     
-    [user2 setTaughtCourses:[NSSet setWithObjects:ios, android, nil]];
+    [user2 setTaughtCourses:[NSSet setWithObjects:ios, nil]];
     
     [user3 setStudiedCourses:[NSSet setWithObjects:ios, android, nil]];
     
