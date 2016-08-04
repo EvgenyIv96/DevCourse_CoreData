@@ -10,23 +10,32 @@
 #import "EIEditSection.h"
 #import "EIStudentsSelectionController.h"
 #import "EITeacherSelectionController.h"
+#import "EIBranchSelectionController.h"
 #import "EIEditCell.h"
 #import "EIAddCell.h"
 #import "EIDataManager.h"
 #import "EICourse.h"
 #import "EIUser.h"
+#import "EITextValidator.h"
 
 
 static NSString* const valueSectionName = @"Course Info";
 static NSString* const studentsSectionName = @"Students";
 static NSString* const chooseTeacherText = @"Tap to choose teacher";
+static NSString* const chooseBranchText = @"Tap to choose branch";
 
-@interface EICourseEditController ()
+@interface EICourseEditController () <EISigleSelectionControllerDelegate, EIMultipieSelectionControllerDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) NSArray* sectionsArray;
-//@property (strong, nonatomic) EIUser* teacher;
 
 @property (strong, nonatomic) EIStudentsSelectionController* studentsSelectionController;
+@property (strong, nonatomic) EIBranchSelectionController* branchSelectionController;
+@property (strong, nonatomic) EITeacherSelectionController* teacherSelectionController;
+
+@property (weak, nonatomic) UITextField* nameField;
+@property (weak, nonatomic) UITextField* subjectField;
+@property (weak, nonatomic) UITextField* branchField;
+@property (weak, nonatomic) UITextField* teacherField;
 
 @end
 
@@ -42,7 +51,6 @@ static NSString* const chooseTeacherText = @"Tap to choose teacher";
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - UITableViewDataSource
@@ -93,6 +101,24 @@ static NSString* const chooseTeacherText = @"Tap to choose teacher";
         
         cell.descriptionLabel.text = key;
         cell.valueField.text = [dataDictionary objectForKey:key];
+        cell.valueField.delegate = self;
+        
+        switch (indexPath.row) {
+            case 0:
+                self.nameField = cell.valueField;
+                break;
+                
+            case 1:
+                self.subjectField = cell.valueField;
+                break;
+                
+            case 2:
+                self.branchField = cell.valueField;
+                break;
+            default:
+                self.teacherField = cell.valueField;
+                break;
+        }
         
         return cell;
         
@@ -180,6 +206,27 @@ static NSString* const chooseTeacherText = @"Tap to choose teacher";
 
 #pragma mark - UITableViewDelegate
 
+- (nullable NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 0) {
+        return nil;
+    }
+    
+    return indexPath;
+    
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section != 0 && indexPath.row == 0) {
+        [self addStudentsAction:[self.tableView cellForRowAtIndexPath:indexPath]];
+    }
+    
+}
+
 /*
 #pragma mark - Navigation
 
@@ -199,6 +246,63 @@ static NSString* const chooseTeacherText = @"Tap to choose teacher";
     [self loadStudentsData];
     [self.tableView reloadData];
     
+}
+
+#pragma mark - EISingleSelectionControllerDelegate
+
+- (void)controller:(EISigleSelectionController *)controller didChangeSelectedObject:(id)newSelectedObject {
+    
+    if ([controller isEqual:self.teacherSelectionController]) {
+        self.course.teacher = newSelectedObject;
+    }
+    
+    if ([controller isEqual:self.branchSelectionController]) {
+        self.course.branch = newSelectedObject;
+    }
+    
+    [self loadCourseValuesData];
+    [self.tableView reloadData];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    
+    if ([textField isEqual:self.branchField]) {
+        
+        [self selectBranchAction:textField];
+        
+        return NO;
+    } else if ([textField isEqual:self.teacherField]) {
+        
+        [self selectTeacherAction:textField];
+        
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    NSString* newString;
+    
+    newString = [EITextValidator validateCourseNameString:textField.text shouldChangeCharactersInRange:range replacementString:string];
+    
+    textField.text = newString;
+    
+    return NO;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if ([textField isEqual:self.nameField]) {
+        [self.subjectField becomeFirstResponder];
+    } else if ([textField isEqual:self.subjectField]) {
+        [textField resignFirstResponder];
+    }
+    
+    return YES;
 }
 
 #pragma mark - Data managment
@@ -233,7 +337,9 @@ static NSString* const chooseTeacherText = @"Tap to choose teacher";
         teacherName = chooseTeacherText;
     }
 
-    
+    if (!branch) {
+        branch = chooseBranchText;
+    }
 
     NSDictionary* nameDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
                                          name, @"Course name",nil];
@@ -286,6 +392,47 @@ static NSString* const chooseTeacherText = @"Tap to choose teacher";
     
 }
 
+- (void)selectBranchAction:(id)sender {
+    
+    EIBranchSelectionController* selectionController = [[EIBranchSelectionController alloc] initWithStyle:UITableViewStylePlain];
+    
+    selectionController.navigationTitle = @"Branch";
+    
+    NSMutableArray* branches = [NSMutableArray arrayWithCapacity:branchesCount];
+    
+    for (int i = 0; i < branchesCount; i++) {
+        [branches addObject:branchesArray[i]];
+    }
+    
+    selectionController.allObjects = branches;
+    
+    if (![self.branchField.text isEqualToString:chooseBranchText]) {
+        selectionController.selectedObject = self.branchField.text;
+    }
+    
+    selectionController.delegate = self;
+    self.branchSelectionController = selectionController;
+    
+    [self.navigationController pushViewController:selectionController animated:YES];
+    
+}
+
+- (void)selectTeacherAction:(id)sender {
+    
+    EITeacherSelectionController* selectionController = [[EITeacherSelectionController alloc] initWithStyle:UITableViewStylePlain];
+    
+    selectionController.navigationTitle = @"Teacher";
+    
+    selectionController.allObjects = [[EIDataManager sharedManager] usersWithOutStudentsForCourse:self.course];
+    
+    selectionController.selectedObject = self.course.teacher;
+    
+    selectionController.delegate = self;
+    self.teacherSelectionController = selectionController;
+    
+    [self.navigationController pushViewController:selectionController animated:YES];
+    
+}
 
 - (void)closeAction:(id)sender {
     
@@ -383,7 +530,7 @@ static NSString* const chooseTeacherText = @"Tap to choose teacher";
     
     NSString* emptyString = @"";
     
-    if (![nameCell.valueField.text isEqualToString:emptyString] || ![subjectCell.valueField.text isEqualToString:emptyString] || ![branchCell.valueField.text isEqualToString:emptyString] ||![branchCell.valueField.text isEqualToString:emptyString] || ![teacherCell.valueField.text isEqualToString:chooseTeacherText] || [self.course.students count] > 0) {
+    if (![nameCell.valueField.text isEqualToString:emptyString] || ![subjectCell.valueField.text isEqualToString:emptyString] || ![branchCell.valueField.text isEqualToString:emptyString] ||![branchCell.valueField.text isEqualToString:chooseBranchText] || ![teacherCell.valueField.text isEqualToString:chooseTeacherText] || [self.course.students count] > 0) {
         
         isEmpty = NO;
         

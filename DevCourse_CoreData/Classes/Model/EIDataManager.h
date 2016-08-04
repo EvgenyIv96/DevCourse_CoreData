@@ -11,6 +11,9 @@
 @class EIUser;
 @class EICourse;
 
+static NSString* const branchesArray[] = {@"Mobile development", @"Design", @"Web", @"Backend development"};
+static const NSInteger branchesCount = 4;
+
 @interface EIDataManager : NSObject
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -24,6 +27,7 @@
 - (NSArray *)coursesWithOutStudiesForUser:(EIUser *)user;
 - (NSArray *)coursesWithOutTeachersForUser:(EIUser *)user;
 - (NSArray *)usersWithOutTeacherForCourse:(EICourse *)course;
+- (NSArray *)usersWithOutStudentsForCourse:(EICourse *)course;
 - (EICourse *)createNewCourse;
 - (void)deleteUser:(EIUser *)user;
 - (void)deleteCourse:(EICourse *)course;

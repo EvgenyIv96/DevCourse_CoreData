@@ -90,6 +90,23 @@
     
 }
 
+- (NSArray *)usersWithOutStudentsForCourse:(EICourse *)course {
+    
+    NSError* error = nil;
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"NOT(SELF IN %@.students)", course];
+    
+    NSFetchRequest* request = [self userRequestWithPredicate:predicate];
+    
+    NSArray* users = [self.managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    
+    return users;
+    
+}
+
 - (void)cancelChanges {
     [self.managedObjectContext rollback];
 }

@@ -19,7 +19,7 @@ static NSString* const valueSectionName = @"User Info";
 static NSString* const studiedCoursesSectionName = @"Studied Courses";
 static NSString* const teachesCoursesSectionName = @"Taught Courses";
 
-@interface EIUserEditController ()
+@interface EIUserEditController () <EIMultipieSelectionControllerDelegate>
 
 @property (strong, nonatomic) NSArray* sectionsArray;
 @property (weak, nonatomic) EICoursesSelectionController* studiesController;

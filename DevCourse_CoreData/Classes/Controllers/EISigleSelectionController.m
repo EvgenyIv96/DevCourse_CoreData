@@ -91,7 +91,7 @@
     
     BOOL isSelected = NO;
     
-    if ([self.allObjects containsObject:self.selectedObject]) {
+    if ([[self.allObjects objectAtIndex:indexPath.row] isEqual:self.selectedObject]) {
         isSelected = YES;
     }
     

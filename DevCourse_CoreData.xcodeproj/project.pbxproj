@@ -30,6 +30,8 @@
 		5C123F7B1D4FC972005D0678 /* EISigleSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F7A1D4FC972005D0678 /* EISigleSelectionController.m */; };
 		5C123F7E1D4FCDE6005D0678 /* EIMultipieSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F7D1D4FCDE6005D0678 /* EIMultipieSelectionController.m */; };
 		5C123F811D4FCFA9005D0678 /* EICoursesSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F801D4FCFA9005D0678 /* EICoursesSelectionController.m */; };
+		5C163E4F1D533B6B004D258F /* EITextValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C163E4E1D533B6B004D258F /* EITextValidator.m */; };
+		5C163E521D5389E2004D258F /* EIBranchSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C163E511D5389E2004D258F /* EIBranchSelectionController.m */; };
 		5C20ADAD1D52381D003DC321 /* EICourseEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C20ADAC1D52381D003DC321 /* EICourseEditController.m */; };
 		5C20ADB01D5240A1003DC321 /* EIStudentsSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C20ADAF1D5240A1003DC321 /* EIStudentsSelectionController.m */; };
 		5C20ADB31D5240B6003DC321 /* EITeacherSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C20ADB21D5240B6003DC321 /* EITeacherSelectionController.m */; };
@@ -84,6 +86,10 @@
 		5C123F7D1D4FCDE6005D0678 /* EIMultipieSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EIMultipieSelectionController.m; sourceTree = "<group>"; };
 		5C123F7F1D4FCFA9005D0678 /* EICoursesSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EICoursesSelectionController.h; path = ../EICoursesSelectionController.h; sourceTree = "<group>"; };
 		5C123F801D4FCFA9005D0678 /* EICoursesSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EICoursesSelectionController.m; path = ../EICoursesSelectionController.m; sourceTree = "<group>"; };
+		5C163E4D1D533B6B004D258F /* EITextValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EITextValidator.h; sourceTree = "<group>"; };
+		5C163E4E1D533B6B004D258F /* EITextValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EITextValidator.m; sourceTree = "<group>"; };
+		5C163E501D5389E2004D258F /* EIBranchSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EIBranchSelectionController.h; sourceTree = "<group>"; };
+		5C163E511D5389E2004D258F /* EIBranchSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EIBranchSelectionController.m; sourceTree = "<group>"; };
 		5C20ADAB1D52381D003DC321 /* EICourseEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EICourseEditController.h; sourceTree = "<group>"; };
 		5C20ADAC1D52381D003DC321 /* EICourseEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EICourseEditController.m; sourceTree = "<group>"; };
 		5C20ADAE1D5240A1003DC321 /* EIStudentsSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EIStudentsSelectionController.h; sourceTree = "<group>"; };
@@ -166,6 +172,8 @@
 				5C20ADAF1D5240A1003DC321 /* EIStudentsSelectionController.m */,
 				5C20ADB11D5240B6003DC321 /* EITeacherSelectionController.h */,
 				5C20ADB21D5240B6003DC321 /* EITeacherSelectionController.m */,
+				5C163E501D5389E2004D258F /* EIBranchSelectionController.h */,
+				5C163E511D5389E2004D258F /* EIBranchSelectionController.m */,
 			);
 			path = Courses;
 			sourceTree = "<group>";
@@ -219,6 +227,8 @@
 		5C123F181D4E7CF3005D0678 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5C163E4D1D533B6B004D258F /* EITextValidator.h */,
+				5C163E4E1D533B6B004D258F /* EITextValidator.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -417,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C163E521D5389E2004D258F /* EIBranchSelectionController.m in Sources */,
 				5C83D2171D4E74370090A113 /* AppDelegate.m in Sources */,
 				5C20ADB31D5240B6003DC321 /* EITeacherSelectionController.m in Sources */,
 				5C123F261D4E7CF3005D0678 /* EIDataManager.m in Sources */,
@@ -440,6 +451,7 @@
 				5C83D2141D4E74370090A113 /* main.m in Sources */,
 				5C123F251D4E7CF3005D0678 /* EIUser.m in Sources */,
 				5C123F7B1D4FC972005D0678 /* EISigleSelectionController.m in Sources */,
+				5C163E4F1D533B6B004D258F /* EITextValidator.m in Sources */,
 				5C123F221D4E7CF3005D0678 /* EIEduPlatform+CoreDataProperties.m in Sources */,
 				5CAAAE611D50EACA008DA0C2 /* EITeachersViewController.m in Sources */,
 			);
