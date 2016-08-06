@@ -22,6 +22,9 @@
     [[UINavigationBar appearance] setTintColor:navigationBarTextColor];
     [[UINavigationBar appearance] setTranslucent: NO];
     
+    [[UITabBar appearance] setTintColor:tabBarTintColor];
+    [[UITabBar appearance] setTranslucent:NO];
+    
     [[UINavigationBar appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName: navigationBarTextColor }];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

@@ -19,6 +19,9 @@ extern NSString *const kXYMySitBaseURL;
 
 #define navigationBarTintColor [UIColor colorWithRed:35.f/255.f green:40.f/255.f blue:55.f/255.f alpha:1.0f]
 #define navigationBarTextColor [UIColor whiteColor]
+
+//#define tabBarTintColor [UIColor colorWithRed:/255.f green:/255.f blue:/255.f alpha:1.0f]
+#define tabBarTintColor [UIColor redColor]
 @interface EIConstants : NSObject
 
 @end
