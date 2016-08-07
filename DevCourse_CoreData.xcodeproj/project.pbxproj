@@ -14,8 +14,6 @@
 		5C123F1F1D4E7CF3005D0678 /* EIUsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F071D4E7CF3005D0678 /* EIUsersViewController.m */; };
 		5C123F201D4E7CF3005D0678 /* EICourse+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F0B1D4E7CF3005D0678 /* EICourse+CoreDataProperties.m */; };
 		5C123F211D4E7CF3005D0678 /* EICourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F0D1D4E7CF3005D0678 /* EICourse.m */; };
-		5C123F221D4E7CF3005D0678 /* EIEduPlatform+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F0F1D4E7CF3005D0678 /* EIEduPlatform+CoreDataProperties.m */; };
-		5C123F231D4E7CF3005D0678 /* EIEduPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F111D4E7CF3005D0678 /* EIEduPlatform.m */; };
 		5C123F241D4E7CF3005D0678 /* EIUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F131D4E7CF3005D0678 /* EIUser+CoreDataProperties.m */; };
 		5C123F251D4E7CF3005D0678 /* EIUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F151D4E7CF3005D0678 /* EIUser.m */; };
 		5C123F261D4E7CF3005D0678 /* EIDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F171D4E7CF3005D0678 /* EIDataManager.m */; };
@@ -58,10 +56,6 @@
 		5C123F0B1D4E7CF3005D0678 /* EICourse+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EICourse+CoreDataProperties.m"; sourceTree = "<group>"; };
 		5C123F0C1D4E7CF3005D0678 /* EICourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EICourse.h; sourceTree = "<group>"; };
 		5C123F0D1D4E7CF3005D0678 /* EICourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EICourse.m; sourceTree = "<group>"; };
-		5C123F0E1D4E7CF3005D0678 /* EIEduPlatform+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EIEduPlatform+CoreDataProperties.h"; sourceTree = "<group>"; };
-		5C123F0F1D4E7CF3005D0678 /* EIEduPlatform+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EIEduPlatform+CoreDataProperties.m"; sourceTree = "<group>"; };
-		5C123F101D4E7CF3005D0678 /* EIEduPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EIEduPlatform.h; sourceTree = "<group>"; };
-		5C123F111D4E7CF3005D0678 /* EIEduPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EIEduPlatform.m; sourceTree = "<group>"; };
 		5C123F121D4E7CF3005D0678 /* EIUser+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EIUser+CoreDataProperties.h"; sourceTree = "<group>"; };
 		5C123F131D4E7CF3005D0678 /* EIUser+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EIUser+CoreDataProperties.m"; sourceTree = "<group>"; };
 		5C123F141D4E7CF3005D0678 /* EIUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EIUser.h; sourceTree = "<group>"; };
@@ -212,10 +206,6 @@
 				5C123F0B1D4E7CF3005D0678 /* EICourse+CoreDataProperties.m */,
 				5C123F0C1D4E7CF3005D0678 /* EICourse.h */,
 				5C123F0D1D4E7CF3005D0678 /* EICourse.m */,
-				5C123F0E1D4E7CF3005D0678 /* EIEduPlatform+CoreDataProperties.h */,
-				5C123F0F1D4E7CF3005D0678 /* EIEduPlatform+CoreDataProperties.m */,
-				5C123F101D4E7CF3005D0678 /* EIEduPlatform.h */,
-				5C123F111D4E7CF3005D0678 /* EIEduPlatform.m */,
 				5C123F121D4E7CF3005D0678 /* EIUser+CoreDataProperties.h */,
 				5C123F131D4E7CF3005D0678 /* EIUser+CoreDataProperties.m */,
 				5C123F141D4E7CF3005D0678 /* EIUser.h */,
@@ -444,7 +434,6 @@
 				5C20ADB01D5240A1003DC321 /* EIStudentsSelectionController.m in Sources */,
 				5C123F811D4FCFA9005D0678 /* EICoursesSelectionController.m in Sources */,
 				5C123F1E1D4E7CF3005D0678 /* EIMainTabBarController.m in Sources */,
-				5C123F231D4E7CF3005D0678 /* EIEduPlatform.m in Sources */,
 				5C123F1C1D4E7CF3005D0678 /* EICoreDataController.m in Sources */,
 				5C123F1D1D4E7CF3005D0678 /* EICoursesViewController.m in Sources */,
 				5C123F2D1D4F5C09005D0678 /* EIUserEditController.m in Sources */,
@@ -452,7 +441,6 @@
 				5C123F251D4E7CF3005D0678 /* EIUser.m in Sources */,
 				5C123F7B1D4FC972005D0678 /* EISigleSelectionController.m in Sources */,
 				5C163E4F1D533B6B004D258F /* EITextValidator.m in Sources */,
-				5C123F221D4E7CF3005D0678 /* EIEduPlatform+CoreDataProperties.m in Sources */,
 				5CAAAE611D50EACA008DA0C2 /* EITeachersViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

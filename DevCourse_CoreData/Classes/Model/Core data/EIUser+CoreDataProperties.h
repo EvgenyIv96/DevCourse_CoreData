@@ -1,15 +1,16 @@
 //
 //  EIUser+CoreDataProperties.h
-//  DevCourse_41_CoreData
+//  DevCourse_CoreData
 //
-//  Created by Евгений on 28.07.16.
-//  Copyright © 2016 Евгений. All rights reserved.
+//  Created by Евгений Иванов on 07.08.16.
+//  Copyright © 2016 Евгений Иванов. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
 //  to delete and recreate this implementation file for your updated model.
 //
 
 #import "EIUser.h"
+@class EICourse;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,23 +19,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *email;
 @property (nullable, nonatomic, retain) NSString *firstName;
 @property (nullable, nonatomic, retain) NSString *lastName;
-@property (nullable, nonatomic, retain) NSManagedObject *eduPlatform;
-@property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *studiedCourses;
-@property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *taughtCourses;
+@property (nullable, nonatomic, retain) NSSet<EICourse *> *studiedCourses;
+@property (nullable, nonatomic, retain) NSSet<EICourse *> *taughtCourses;
 
 @end
 
 @interface EIUser (CoreDataGeneratedAccessors)
 
-- (void)addStudiedCoursesObject:(NSManagedObject *)value;
-- (void)removeStudiedCoursesObject:(NSManagedObject *)value;
-- (void)addStudiedCourses:(NSSet<NSManagedObject *> *)values;
-- (void)removeStudiedCourses:(NSSet<NSManagedObject *> *)values;
+- (void)addStudiedCoursesObject:(EICourse *)value;
+- (void)removeStudiedCoursesObject:(EICourse *)value;
+- (void)addStudiedCourses:(NSSet<EICourse *> *)values;
+- (void)removeStudiedCourses:(NSSet<EICourse *> *)values;
 
-- (void)addTaughtCoursesObject:(NSManagedObject *)value;
-- (void)removeTaughtCoursesObject:(NSManagedObject *)value;
-- (void)addTaughtCourses:(NSSet<NSManagedObject *> *)values;
-- (void)removeTaughtCourses:(NSSet<NSManagedObject *> *)values;
+- (void)addTaughtCoursesObject:(EICourse *)value;
+- (void)removeTaughtCoursesObject:(EICourse *)value;
+- (void)addTaughtCourses:(NSSet<EICourse *> *)values;
+- (void)removeTaughtCourses:(NSSet<EICourse *> *)values;
 
 @end
 

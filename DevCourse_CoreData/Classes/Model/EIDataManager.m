@@ -9,7 +9,6 @@
 #import "EIDataManager.h"
 #import "EIUser.h"
 #import "EICourse.h"
-#import "EIEduPlatform.h"
 
 @implementation EIDataManager
 
@@ -159,8 +158,6 @@
 
 - (void)generateGeekbrainsPortal {
     
-    EIEduPlatform* geekbrains = [NSEntityDescription insertNewObjectForEntityForName:@"EIEduPlatform" inManagedObjectContext:self.managedObjectContext];
-    
     EICourse* ios= [NSEntityDescription insertNewObjectForEntityForName:@"EICourse" inManagedObjectContext:self.managedObjectContext];
     
     ios.name = @"iOS";
@@ -200,9 +197,6 @@
     [user2 setTaughtCourses:[NSSet setWithObjects:ios, nil]];
     
     [user3 setStudiedCourses:[NSSet setWithObjects:ios, android, nil]];
-    
-    [geekbrains setCourses:[NSSet setWithObjects:ios, android, nil]];
-    [geekbrains setUsers:[NSSet setWithObjects:user1, user2, user3, nil]];
 
 }
 
