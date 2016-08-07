@@ -10,6 +10,7 @@
 #import "EIDataManager.h"
 #import "EIUser.h"
 #import "EIUserEditController.h"
+#import "EIUserProfileViewController.h"
 
 @interface EIUsersViewController ()
 
@@ -28,6 +29,21 @@
     
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    EIUser* user = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    [self pushProfileControllerForUser:user];
+}
 
 #pragma mark - fetchedResultsController
 
@@ -76,10 +92,6 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - Navigation Bar setup
 
@@ -122,5 +134,16 @@
     
 }
 
+#pragma mark - Other
+
+- (void)pushProfileControllerForUser:(EIUser *)user {
+    
+    EIUserProfileViewController* vc = [[EIUserProfileViewController alloc] initWithNibName:@"EIProfileViewController" bundle:nil];
+    
+    vc.user = user;
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
 
 @end

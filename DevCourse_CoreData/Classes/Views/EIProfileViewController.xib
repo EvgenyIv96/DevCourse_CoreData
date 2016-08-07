@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EIUserProfileViewController">
+            <connections>
+                <outlet property="avatarImageView" destination="TrO-YW-LgC" id="4WO-WN-Oyx"/>
+                <outlet property="emailLabel" destination="Tt1-au-Acu" id="k7g-7b-rKf"/>
+                <outlet property="nameLabel" destination="Eks-Lm-xVd" id="vAJ-l7-7gz"/>
+                <outlet property="view" destination="iN0-l3-epB" id="GtE-rU-qZI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mky-Md-IFa" userLabel="Bottom view">
+                    <rect key="frame" x="0.0" y="198" width="600" height="402"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQf-cF-xnR" userLabel="Top View">
+                    <rect key="frame" x="0.0" y="64" width="600" height="134"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noavatar" translatesAutoresizingMaskIntoConstraints="NO" id="TrO-YW-LgC">
+                            <rect key="frame" x="15" y="5" width="75" height="75"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="75" id="8JS-86-HqN"/>
+                                <constraint firstAttribute="height" constant="75" id="idz-JQ-xhK"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First name and last name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eks-Lm-xVd">
+                            <rect key="frame" x="105" y="8" width="472" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="192" id="WZ1-cB-hvt"/>
+                                <constraint firstAttribute="height" constant="21" id="krT-g9-Apw"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="WZ1-cB-hvt"/>
+                                </mask>
+                            </variation>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tt1-au-Acu">
+                            <rect key="frame" x="105" y="37" width="480" height="21"/>
+                            <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.93059724569320679" green="0.27452105283737183" blue="0.18561512231826782" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="Eks-Lm-xVd" firstAttribute="leading" secondItem="Tt1-au-Acu" secondAttribute="leading" id="Esx-pX-5VR"/>
+                        <constraint firstItem="Eks-Lm-xVd" firstAttribute="leading" secondItem="TrO-YW-LgC" secondAttribute="trailing" constant="15" id="M1l-fp-BiF"/>
+                        <constraint firstItem="TrO-YW-LgC" firstAttribute="leading" secondItem="SQf-cF-xnR" secondAttribute="leading" constant="15" id="PJq-uj-wxS"/>
+                        <constraint firstItem="Eks-Lm-xVd" firstAttribute="top" secondItem="SQf-cF-xnR" secondAttribute="topMargin" id="VSz-J0-6cy"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="Eks-Lm-xVd" secondAttribute="trailing" constant="15" id="Vfp-c3-Bea"/>
+                        <constraint firstAttribute="trailing" secondItem="Tt1-au-Acu" secondAttribute="trailing" constant="15" id="abD-ee-YXl"/>
+                        <constraint firstItem="TrO-YW-LgC" firstAttribute="top" secondItem="SQf-cF-xnR" secondAttribute="top" constant="5" id="f3R-aH-wEg"/>
+                        <constraint firstItem="Tt1-au-Acu" firstAttribute="top" secondItem="Eks-Lm-xVd" secondAttribute="bottom" constant="8" id="zKM-ul-ucG"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Mky-Md-IFa" firstAttribute="top" secondItem="SQf-cF-xnR" secondAttribute="bottom" id="APg-rt-L7N"/>
+                <constraint firstItem="SQf-cF-xnR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="C2Z-Uj-BHr"/>
+                <constraint firstAttribute="trailing" secondItem="SQf-cF-xnR" secondAttribute="trailing" id="Jh3-UP-sPn"/>
+                <constraint firstAttribute="trailing" secondItem="Mky-Md-IFa" secondAttribute="trailing" id="LLF-xk-f0g"/>
+                <constraint firstItem="Mky-Md-IFa" firstAttribute="height" secondItem="SQf-cF-xnR" secondAttribute="height" multiplier="3" id="mGH-nh-e5f"/>
+                <constraint firstItem="SQf-cF-xnR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="t4g-Ux-n1E"/>
+                <constraint firstAttribute="bottom" secondItem="Mky-Md-IFa" secondAttribute="bottom" id="vV4-vL-nHJ"/>
+                <constraint firstItem="Mky-Md-IFa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xiH-oc-59I"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="noavatar" width="100" height="100"/>
+    </resources>
+</document>
