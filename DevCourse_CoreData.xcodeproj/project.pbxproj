@@ -35,6 +35,11 @@
 		5C20ADB31D5240B6003DC321 /* EITeacherSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C20ADB21D5240B6003DC321 /* EITeacherSelectionController.m */; };
 		5C3ECB441D576DD2002A9CE2 /* EIUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3ECB431D576DD2002A9CE2 /* EIUserProfileViewController.m */; };
 		5C3ECB461D576DEC002A9CE2 /* EIProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C3ECB451D576DEC002A9CE2 /* EIProfileViewController.xib */; };
+		5C3ECB7B1D5888AE002A9CE2 /* EICoursesSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3ECB7A1D5888AE002A9CE2 /* EICoursesSection.m */; };
+		5C3ECB7E1D588ADB002A9CE2 /* EICourseCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3ECB7D1D588ADB002A9CE2 /* EICourseCollectionCell.m */; };
+		5C3ECB801D588B61002A9CE2 /* EICourseCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C3ECB7F1D588B61002A9CE2 /* EICourseCollectionCell.xib */; };
+		5C3ECB831D589C4E002A9CE2 /* EICourseHeaderCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3ECB821D589C4D002A9CE2 /* EICourseHeaderCollectionView.m */; };
+		5C3ECB851D589C67002A9CE2 /* EICourseHeaderCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C3ECB841D589C67002A9CE2 /* EICourseHeaderCollectionView.xib */; };
 		5C83D2141D4E74370090A113 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83D2131D4E74370090A113 /* main.m */; };
 		5C83D2171D4E74370090A113 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C83D2161D4E74370090A113 /* AppDelegate.m */; };
 		5C83D2221D4E74370090A113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C83D2211D4E74370090A113 /* Assets.xcassets */; };
@@ -95,6 +100,14 @@
 		5C3ECB421D576DD2002A9CE2 /* EIUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EIUserProfileViewController.h; sourceTree = "<group>"; };
 		5C3ECB431D576DD2002A9CE2 /* EIUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EIUserProfileViewController.m; sourceTree = "<group>"; };
 		5C3ECB451D576DEC002A9CE2 /* EIProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EIProfileViewController.xib; sourceTree = "<group>"; };
+		5C3ECB791D5888AE002A9CE2 /* EICoursesSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EICoursesSection.h; sourceTree = "<group>"; };
+		5C3ECB7A1D5888AE002A9CE2 /* EICoursesSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EICoursesSection.m; sourceTree = "<group>"; };
+		5C3ECB7C1D588ADB002A9CE2 /* EICourseCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EICourseCollectionCell.h; sourceTree = "<group>"; };
+		5C3ECB7D1D588ADB002A9CE2 /* EICourseCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EICourseCollectionCell.m; sourceTree = "<group>"; };
+		5C3ECB7F1D588B61002A9CE2 /* EICourseCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EICourseCollectionCell.xib; sourceTree = "<group>"; };
+		5C3ECB811D589C4D002A9CE2 /* EICourseHeaderCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EICourseHeaderCollectionView.h; sourceTree = "<group>"; };
+		5C3ECB821D589C4D002A9CE2 /* EICourseHeaderCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EICourseHeaderCollectionView.m; sourceTree = "<group>"; };
+		5C3ECB841D589C67002A9CE2 /* EICourseHeaderCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EICourseHeaderCollectionView.xib; sourceTree = "<group>"; };
 		5C83D20F1D4E74370090A113 /* DevCourse_CoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevCourse_CoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C83D2131D4E74370090A113 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5C83D2151D4E74370090A113 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -190,6 +203,10 @@
 				5C123F801D4FCFA9005D0678 /* EICoursesSelectionController.m */,
 				5C3ECB421D576DD2002A9CE2 /* EIUserProfileViewController.h */,
 				5C3ECB431D576DD2002A9CE2 /* EIUserProfileViewController.m */,
+				5C3ECB7C1D588ADB002A9CE2 /* EICourseCollectionCell.h */,
+				5C3ECB7D1D588ADB002A9CE2 /* EICourseCollectionCell.m */,
+				5C3ECB811D589C4D002A9CE2 /* EICourseHeaderCollectionView.h */,
+				5C3ECB821D589C4D002A9CE2 /* EICourseHeaderCollectionView.m */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -202,6 +219,8 @@
 				5C123F171D4E7CF3005D0678 /* EIDataManager.m */,
 				5C123F2E1D4F5C99005D0678 /* EIEditSection.h */,
 				5C123F2F1D4F5C99005D0678 /* EIEditSection.m */,
+				5C3ECB791D5888AE002A9CE2 /* EICoursesSection.h */,
+				5C3ECB7A1D5888AE002A9CE2 /* EICoursesSection.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,6 +257,8 @@
 				5C123F1A1D4E7CF3005D0678 /* EICoreDataController.xib */,
 				5C123F1B1D4E7CF3005D0678 /* EIMainTabBarController.xib */,
 				5C3ECB451D576DEC002A9CE2 /* EIProfileViewController.xib */,
+				5C3ECB7F1D588B61002A9CE2 /* EICourseCollectionCell.xib */,
+				5C3ECB841D589C67002A9CE2 /* EICourseHeaderCollectionView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -364,9 +385,11 @@
 				5C123F271D4E7CF3005D0678 /* EICoreDataController.xib in Resources */,
 				5C83D2251D4E74370090A113 /* LaunchScreen.storyboard in Resources */,
 				5C3ECB461D576DEC002A9CE2 /* EIProfileViewController.xib in Resources */,
+				5C3ECB851D589C67002A9CE2 /* EICourseHeaderCollectionView.xib in Resources */,
 				5C123F281D4E7CF3005D0678 /* EIMainTabBarController.xib in Resources */,
 				5C83D2221D4E74370090A113 /* Assets.xcassets in Resources */,
 				5C123F771D4F6314005D0678 /* EIAddCell.xib in Resources */,
+				5C3ECB801D588B61002A9CE2 /* EICourseCollectionCell.xib in Resources */,
 				5C123F781D4F6314005D0678 /* EIEditCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +455,8 @@
 				5C123F261D4E7CF3005D0678 /* EIDataManager.m in Sources */,
 				5C123F1F1D4E7CF3005D0678 /* EIUsersViewController.m in Sources */,
 				5C20ADAD1D52381D003DC321 /* EICourseEditController.m in Sources */,
+				5C3ECB7E1D588ADB002A9CE2 /* EICourseCollectionCell.m in Sources */,
+				5C3ECB7B1D5888AE002A9CE2 /* EICoursesSection.m in Sources */,
 				5C123F7E1D4FCDE6005D0678 /* EIMultipieSelectionController.m in Sources */,
 				5C123F741D4F630C005D0678 /* EIEditCell.m in Sources */,
 				5C123F301D4F5C99005D0678 /* EIEditSection.m in Sources */,
@@ -440,6 +465,7 @@
 				5C123F201D4E7CF3005D0678 /* EICourse+CoreDataProperties.m in Sources */,
 				5C123EF61D4E7AAE005D0678 /* DevCourse_CoreData.xcdatamodeld in Sources */,
 				5C123F211D4E7CF3005D0678 /* EICourse.m in Sources */,
+				5C3ECB831D589C4E002A9CE2 /* EICourseHeaderCollectionView.m in Sources */,
 				5C20ADB01D5240A1003DC321 /* EIStudentsSelectionController.m in Sources */,
 				5C123F811D4FCFA9005D0678 /* EICoursesSelectionController.m in Sources */,
 				5C123F1E1D4E7CF3005D0678 /* EIMainTabBarController.m in Sources */,
