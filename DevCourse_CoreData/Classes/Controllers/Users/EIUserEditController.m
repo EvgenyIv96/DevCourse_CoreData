@@ -111,11 +111,11 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
             [cell.addButton setTitle: @"Add course" forState: UIControlStateNormal];
             
             if ([section.name isEqualToString:teachesCoursesSectionName]) {
+                [cell.addButton removeTarget:nil action:nil forControlEvents:UIControlEventAllTouchEvents];
                 [cell.addButton addTarget:self action:@selector(addTaughtCourse:) forControlEvents:UIControlEventTouchUpInside];
-                cell.addButton.tag = 0;
             } else if ([section.name isEqualToString:studiedCoursesSectionName]) {
+                [cell.addButton removeTarget:nil action:nil forControlEvents:UIControlEventAllTouchEvents];
                 [cell.addButton addTarget:self action:@selector(addStudiedCourse:) forControlEvents:UIControlEventTouchUpInside];
-                cell.addButton.tag = 1;
             }
 
             
@@ -281,7 +281,7 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
 #pragma mark - Actions
 
 - (void)addStudiedCourse:(id)sender {
-
+    
     EICoursesSelectionController* selectionController = [[EICoursesSelectionController alloc] initWithStyle:UITableViewStylePlain];
     
     selectionController.navigationTitle = @"Studied courses";

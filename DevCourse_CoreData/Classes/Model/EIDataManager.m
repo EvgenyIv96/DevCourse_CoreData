@@ -37,10 +37,10 @@
     
     NSArray* courses = [self.managedObjectContext executeFetchRequest:request error:&error];
     
-    for (EICourse* course in courses) {
-        NSLog(@"%@",course.name);
-        NSLog(@"Students:\n %@", [course.students allObjects]);
-    }
+//    for (EICourse* course in courses) {
+//        NSLog(@"%@",course.name);
+//        NSLog(@"Students:\n %@", [course.students allObjects]);
+//    }
     
     if (error) {
         NSLog(@"%@", [error localizedDescription]);
@@ -59,10 +59,10 @@
     
     NSArray* courses = [self.managedObjectContext executeFetchRequest:request error:&error];
     
-    for (EICourse* course in courses) {
-        NSLog(@"%@",course.name);
-        NSLog(@"Teachers:\n %@", [course.students allObjects]);
-    }
+//    for (EICourse* course in courses) {
+//        NSLog(@"%@",course.name);
+//        NSLog(@"Teachers:\n %@", [course.students allObjects]);
+//    }
     
     if (error) {
         NSLog(@"%@", [error localizedDescription]);
