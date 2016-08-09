@@ -317,7 +317,9 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
     if ([self isEmptyUser]) {
         [[EIDataManager sharedManager] deleteUser:self.user];
         [[EIDataManager sharedManager] saveContext];
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:YES completion:^{
+            [self.delegate userEditControllerDidFinishedWork:self];
+        }];
     } else {
         
         UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Warning!"
@@ -325,7 +327,9 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
         
         UIAlertAction* saveAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [[EIDataManager sharedManager] cancelChanges];
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self dismissViewControllerAnimated:YES completion:^{
+                [self.delegate userEditControllerDidFinishedWork:self];
+            }];
             
         }];
         
@@ -355,7 +359,9 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
     
     [[EIDataManager sharedManager] saveContext];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self.delegate userEditControllerDidFinishedWork:self];
+    }];
     
 }
     

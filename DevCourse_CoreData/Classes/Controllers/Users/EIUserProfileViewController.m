@@ -12,8 +12,9 @@
 #import "EICoursesSection.h"
 #import "EICourseCollectionCell.h"
 #import "EICourseHeaderCollectionView.h"
+#import "EIUserEditController.h"
 
-@interface EIUserProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface EIUserProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource, EIUserEditControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel* nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel* emailLabel;
@@ -32,7 +33,7 @@
     
     [self configureView];
     [self configureNavigationBar];
-    [self loadUserCourses];
+    [self loadAllUserData];
     
 }
 
@@ -124,9 +125,26 @@
     
 }
 
+#pragma mark - EIUserEditControllerDelegate
 
+- (void)userEditControllerDidFinishedWork:(EIUserEditController *)controller {
+    
+    [self loadAllUserData];
+    
+}
 
 #pragma mark - Data managment
+
+- (void)loadAllUserData {
+    [self loadUserProperties];
+    [self loadUserCourses];
+}
+
+- (void)loadUserProperties {
+    
+    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.user.firstName, self.user.lastName];
+    self.emailLabel.text = self.user.email;
+}
 
 - (void)loadUserCourses {
     
@@ -139,27 +157,38 @@
 
 - (void)loadStudiedCourses {
     
+    EICoursesSection* section = [[EICoursesSection alloc] init];
+    section.name = @"Courses which studied";
     if ([self.user.studiedCourses count] > 0) {
-        NSMutableArray* tempArray = [NSMutableArray arrayWithArray:self.coursesSectionsArray];
-        EICoursesSection* section = [[EICoursesSection alloc] init];
-        section.name = @"Courses which studied";
         section.coursesArray = [self.user.studiedCourses allObjects];
-        [tempArray addObject:section];
-        self.coursesSectionsArray = [NSArray arrayWithArray:tempArray];
     }
+    [self addSectionToSectionsArray:section];
     
 }
 
 - (void)loadTaughtCourses {
-        
+
+    EICoursesSection* section = [[EICoursesSection alloc] init];
+    section.name = @"Courses which leads";
     if ([self.user.taughtCourses count] > 0) {
-        NSMutableArray* tempArray = [NSMutableArray arrayWithArray:self.coursesSectionsArray];
-        EICoursesSection* section = [[EICoursesSection alloc] init];
-        section.name = @"Courses which leads";
         section.coursesArray = [self.user.taughtCourses allObjects];
-        [tempArray addObject:section];
-        self.coursesSectionsArray = [NSArray arrayWithArray:tempArray];
     }
+    [self addSectionToSectionsArray:section];
+    
+}
+
+#pragma mark - Actions
+
+- (void)editAction:(id)sender {
+    
+    EIUserEditController* vc = [[EIUserEditController alloc] initWithStyle:UITableViewStyleGrouped];
+    vc.user = self.user;
+    vc.delegate = self;
+    
+    UINavigationController* nc = [[UINavigationController alloc] initWithRootViewController:vc];
+    nc.modalPresentationStyle = UIModalPresentationFullScreen;
+    
+    [self presentViewController:nc animated:YES completion:nil];
     
 }
 
@@ -169,13 +198,15 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.user.firstName, self.user.lastName];
-    self.emailLabel.text = self.user.email;
-    
 }
 
 - (void)configureNavigationBar {
     self.navigationItem.title = @"Profile";
+    
+    UIBarButtonItem* editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editAction:)];
+    
+    [self.navigationItem setRightBarButtonItem:editButton];
+    
 }
 
 - (NSString *)getCourseNameAtIndexPath:(NSIndexPath *)indexPath {
@@ -185,6 +216,43 @@
     EICourse* course = [section.coursesArray objectAtIndex:indexPath.row];
     
     return course.name;
+    
+}
+
+- (void)addSectionToSectionsArray:(EICoursesSection *)section {
+    
+    BOOL isAdded = NO;
+    
+    for (EICoursesSection* sect in self.coursesSectionsArray) {
+        
+        if ([sect.name isEqualToString:section.name]) {
+            
+            if ([section.coursesArray count] > 0) {
+                sect.coursesArray = [NSArray arrayWithArray:section.coursesArray];
+            } else {
+                NSMutableArray* tempCoursesArray = [NSMutableArray arrayWithArray:self.coursesSectionsArray];
+                
+                [tempCoursesArray removeObject:sect];
+                
+                self.coursesSectionsArray = tempCoursesArray;
+            }
+            
+            isAdded = YES;
+            break;
+        }
+        
+    }
+    
+    if (!isAdded) {
+        
+        NSMutableArray* tempCoursesArray = [NSMutableArray arrayWithArray:self.coursesSectionsArray];
+        if ([section.coursesArray count] > 0) {
+            [tempCoursesArray addObject:section];
+        }
+        self.coursesSectionsArray = [NSArray arrayWithArray:tempCoursesArray
+                                     ];
+        
+    }
     
 }
 

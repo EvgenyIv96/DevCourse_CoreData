@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 @class EIUser;
+@protocol EIUserEditControllerDelegate;
 
 @interface EIUserEditController : UITableViewController
 
 @property (strong, nonatomic) EIUser* user;
+@property (weak, nonatomic) id <EIUserEditControllerDelegate> delegate;
+
+@end
+
+@protocol EIUserEditControllerDelegate <NSObject>
+
+@optional
+- (void)userEditControllerDidFinishedWork:(EIUserEditController *)controller;
 
 @end

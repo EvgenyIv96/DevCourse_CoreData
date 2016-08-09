@@ -102,6 +102,7 @@
     UIBarButtonItem* addUserButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)];
     
     [self.navigationItem setRightBarButtonItem:addUserButton];
+
 }
 
 #pragma mark - Actions
