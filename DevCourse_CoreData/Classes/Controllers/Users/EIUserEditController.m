@@ -194,14 +194,20 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
         [self.user setStudiedCourses:[NSSet setWithArray:selectedObjects]];
         [self loadStudiedCoursesData];
         
+        NSInteger section = [self getIndexOfSectionWithName:studiedCoursesSectionName];
+        
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
+        
     } else if ([controller isEqual:self.taughtController]) {
         
         [self.user setTaughtCourses:[NSSet setWithArray:selectedObjects]];
         [self loadTaughtCoursesData];
-
+        
+        NSInteger section = [self getIndexOfSectionWithName:teachesCoursesSectionName];
+        
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
+        
     }
-    
-    [self.tableView reloadData];
     
 }
 
@@ -426,6 +432,21 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
     self.navigationItem.leftBarButtonItem = closeButton;
     self.navigationItem.rightBarButtonItem = saveButton;
     
+}
+
+- (NSInteger)getIndexOfSectionWithName:(NSString *)name {
+    
+    for (EIEditSection* section in self.sectionsArray) {
+        
+        if ([section.name isEqualToString:name]) {
+            
+            return [self.sectionsArray indexOfObject:section];
+            
+        }
+        
+    }
+    
+    return NSNotFound;
 }
 
 @end

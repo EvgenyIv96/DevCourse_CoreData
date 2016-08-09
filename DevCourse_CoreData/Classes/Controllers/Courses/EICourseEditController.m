@@ -227,16 +227,6 @@ static NSString* const chooseBranchText = @"Tap to choose branch";
     
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 #pragma mark - EIMultipieSelectionControllerDelegate
 
 - (void)controller:(EIMultipieSelectionController *)controller didChangeSelectedObjects:(NSArray *)selectedObjects {
@@ -244,7 +234,10 @@ static NSString* const chooseBranchText = @"Tap to choose branch";
     [self.course setStudents:[NSSet setWithArray: selectedObjects]];
     
     [self loadStudentsData];
-    [self.tableView reloadData];
+    
+    NSInteger section = [self getIndexOfSectionWithName:studentsSectionName];
+    
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
     
 }
 
@@ -252,16 +245,56 @@ static NSString* const chooseBranchText = @"Tap to choose branch";
 
 - (void)controller:(EISigleSelectionController *)controller didChangeSelectedObject:(id)newSelectedObject {
     
+    NSInteger section = [self getIndexOfSectionWithName:valueSectionName];
+    
+    if (section == NSNotFound) {
+        NSLog(@"Values section not found!");
+        return;
+    }
+    
+    EIEditSection* valuesSection = [self getSectionAtIndex:section];
+    
     if ([controller isEqual:self.teacherSelectionController]) {
+        
         self.course.teacher = newSelectedObject;
+        
+        NSInteger row = [self getIndexOfDictionaryForKey:@"Teacher" inArray:valuesSection.dataArray];
+        
+        NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:[self configureTeacherName], @"Teacher", nil];
+        
+        NSMutableArray* tempArray = [NSMutableArray arrayWithArray:valuesSection.dataArray];
+        
+        [tempArray replaceObjectAtIndex:row withObject:dict];
+        
+        valuesSection.dataArray = tempArray;
+        
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+        
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        
     }
     
     if ([controller isEqual:self.branchSelectionController]) {
+        
         self.course.branch = newSelectedObject;
+        
+        NSInteger row = [self getIndexOfDictionaryForKey:@"Branch" inArray:valuesSection.dataArray];
+        
+        NSDictionary* dict = [NSDictionary dictionaryWithObjectsAndKeys:[self configureBranchName] , @"Branch", nil];
+        
+        NSMutableArray* tempArray = [NSMutableArray arrayWithArray:valuesSection.dataArray];
+        
+        [tempArray replaceObjectAtIndex:row withObject:dict];
+        
+        valuesSection.dataArray = tempArray;
+
+        
+        NSIndexPath* indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+        
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        
     }
     
-    [self loadCourseValuesData];
-    [self.tableView reloadData];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -327,19 +360,10 @@ static NSString* const chooseBranchText = @"Tap to choose branch";
     
     NSString* name = self.course.name;
     NSString* subject = self.course.subject;
-    NSString* branch = self.course.branch;
     
-    NSString* teacherName;
+    NSString* teacherName = [self configureTeacherName];
     
-    if (self.course.teacher.firstName && self.course.teacher.lastName) {
-        teacherName = [NSString stringWithFormat:@"%@ %@", self.course.teacher.firstName, self.course.teacher.lastName];
-    } else {
-        teacherName = chooseTeacherText;
-    }
-
-    if (!branch) {
-        branch = chooseBranchText;
-    }
+    NSString* branch = [self configureBranchName];
 
     NSDictionary* nameDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
                                          name, @"Course name",nil];
@@ -372,7 +396,28 @@ static NSString* const chooseBranchText = @"Tap to choose branch";
     
 }
 
+- (NSString *)configureTeacherName {
+    
+    NSString* teacherName = chooseTeacherText;
+    
+    if (self.course.teacher.firstName && self.course.teacher.lastName) {
+        teacherName = [NSString stringWithFormat:@"%@ %@", self.course.teacher.firstName, self.course.teacher.lastName];
+    }
+    
+    return teacherName;
+    
+}
 
+- (NSString *)configureBranchName {
+    
+    NSString* branch = self.course.branch;
+    
+    if (!branch || [branch isEqualToString:@""]) {
+        branch = chooseBranchText;
+    }
+    
+    return branch;
+}
 
 #pragma mark - Actions
 
@@ -554,6 +599,40 @@ static NSString* const chooseBranchText = @"Tap to choose branch";
     
     self.navigationItem.leftBarButtonItem = closeButton;
     self.navigationItem.rightBarButtonItem = saveButton;
+    
+}
+
+- (NSInteger)getIndexOfSectionWithName:(NSString *)name {
+    
+    for (EIEditSection* section in self.sectionsArray) {
+        
+        if ([section.name isEqualToString:name]) {
+            
+            return [self.sectionsArray indexOfObject:section];
+            
+        }
+        
+    }
+    
+    return NSNotFound;
+}
+
+- (NSInteger)getIndexOfDictionaryForKey:(NSString *)key inArray:(NSArray *)array {
+    
+    for (NSDictionary* dict in array) {
+        
+        for (NSString* tempKey in [dict allKeys]) {
+            
+            if ([tempKey isEqualToString:key]) {
+                NSInteger index = [array indexOfObject:dict];
+                return index;
+            }
+            
+        }
+        
+    }
+    
+    return NSNotFound;
     
 }
 
