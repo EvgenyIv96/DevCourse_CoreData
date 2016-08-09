@@ -24,19 +24,19 @@
     
     UINavigationController* usersNavContr = [[UINavigationController alloc] initWithRootViewController:usersController];
     
-    usersNavContr.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Users" image:nil tag:0];
+    usersNavContr.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Users" image:[UIImage imageNamed:@"users_icon_unselected"] selectedImage:[UIImage imageNamed:@"users_icon_selected"]];
     
     EICoursesViewController* coursesController = [[EICoursesViewController alloc] initWithNibName:@"EICoreDataController" bundle:nil];
     
     UINavigationController* coursesNavContr = [[UINavigationController alloc] initWithRootViewController:coursesController];
     
-    coursesNavContr.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Courses" image:nil tag:1];
+    coursesNavContr.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Courses" image:[UIImage imageNamed:@"courses_icon_unselected"] selectedImage:[UIImage imageNamed:@"courses_icon_selected"]];
     
     EITeachersViewController* teachetsController = [[EITeachersViewController alloc] initWithNibName:@"EICoreDataController" bundle:nil];
     
     UINavigationController* teachersNavController = [[UINavigationController alloc] initWithRootViewController:teachetsController];
     
-    teachersNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Teachers" image:nil tag:2];
+    teachersNavController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Teachers" image:[UIImage imageNamed:@"teachers_icon_unselected"] selectedImage:[UIImage imageNamed:@"teachers_icon_selected"]];
     
     
     [self setViewControllers:@[usersNavContr, coursesNavContr, teachersNavController]];

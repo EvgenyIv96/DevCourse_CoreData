@@ -18,6 +18,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [[UINavigationBar appearance] setBarTintColor:navigationBarTintColor];
+    [[UINavigationBar appearance] setTintColor:navigationBarTextColor];
+    [[UINavigationBar appearance] setTranslucent: NO];
+    
+    [[UITabBar appearance] setTintColor:tabBarTintColor];
+    [[UITabBar appearance] setTranslucent:NO];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName: navigationBarTextColor }];
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     EIMainTabBarController* vc = [[EIMainTabBarController alloc] initWithNibName:@"EIMainTabBarController" bundle:nil];

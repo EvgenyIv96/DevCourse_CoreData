@@ -25,7 +25,6 @@
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="yev-bg-7fl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jk8-A1-YKV"/>
                 <constraint firstAttribute="trailing" secondItem="yev-bg-7fl" secondAttribute="trailing" id="per-bK-fUt"/>

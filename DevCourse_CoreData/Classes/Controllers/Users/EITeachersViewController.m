@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Teachers";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,6 +89,8 @@
     NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     
     [self configureCell:cell withObject:object];
+    
+    cell.backgroundColor = [UIColor clearColor];
     
     return cell;
     

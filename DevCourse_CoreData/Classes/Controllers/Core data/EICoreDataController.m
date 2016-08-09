@@ -22,6 +22,13 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    self.tableView.backgroundColor = tableViewBackgroundColor;
+    self.tableView.separatorColor = tableViewSeparatorColor;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -98,6 +105,18 @@
     return nil;
 }
 
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.textLabel.textColor = tableViewCellTextColor;
+    cell.backgroundColor = tableViewCellColor;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
 
 #pragma mark - SWTableViewCellDelegate
 

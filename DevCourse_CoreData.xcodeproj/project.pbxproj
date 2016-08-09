@@ -30,6 +30,7 @@
 		5C123F811D4FCFA9005D0678 /* EICoursesSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C123F801D4FCFA9005D0678 /* EICoursesSelectionController.m */; };
 		5C163E4F1D533B6B004D258F /* EITextValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C163E4E1D533B6B004D258F /* EITextValidator.m */; };
 		5C163E521D5389E2004D258F /* EIBranchSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C163E511D5389E2004D258F /* EIBranchSelectionController.m */; };
+		5C163E571D53C272004D258F /* EIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C163E561D53C272004D258F /* EIConstants.m */; };
 		5C20ADAD1D52381D003DC321 /* EICourseEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C20ADAC1D52381D003DC321 /* EICourseEditController.m */; };
 		5C20ADB01D5240A1003DC321 /* EIStudentsSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C20ADAF1D5240A1003DC321 /* EIStudentsSelectionController.m */; };
 		5C20ADB31D5240B6003DC321 /* EITeacherSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C20ADB21D5240B6003DC321 /* EITeacherSelectionController.m */; };
@@ -91,6 +92,9 @@
 		5C163E4E1D533B6B004D258F /* EITextValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EITextValidator.m; sourceTree = "<group>"; };
 		5C163E501D5389E2004D258F /* EIBranchSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EIBranchSelectionController.h; sourceTree = "<group>"; };
 		5C163E511D5389E2004D258F /* EIBranchSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EIBranchSelectionController.m; sourceTree = "<group>"; };
+		5C163E551D53C272004D258F /* EIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EIConstants.h; sourceTree = "<group>"; };
+		5C163E561D53C272004D258F /* EIConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EIConstants.m; sourceTree = "<group>"; };
+		5C163E581D53C458004D258F /* DevCourse_CoreData-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DevCourse_CoreData-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		5C20ADAB1D52381D003DC321 /* EICourseEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EICourseEditController.h; sourceTree = "<group>"; };
 		5C20ADAC1D52381D003DC321 /* EICourseEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EICourseEditController.m; sourceTree = "<group>"; };
 		5C20ADAE1D5240A1003DC321 /* EIStudentsSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EIStudentsSelectionController.h; sourceTree = "<group>"; };
@@ -299,7 +303,10 @@
 		5C83D2121D4E74370090A113 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5C163E581D53C458004D258F /* DevCourse_CoreData-Prefix.pch */,
 				5C83D2131D4E74370090A113 /* main.m */,
+				5C163E551D53C272004D258F /* EIConstants.h */,
+				5C163E561D53C272004D258F /* EIConstants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -458,6 +465,7 @@
 				5C3ECB7E1D588ADB002A9CE2 /* EICourseCollectionCell.m in Sources */,
 				5C3ECB7B1D5888AE002A9CE2 /* EICoursesSection.m in Sources */,
 				5C123F7E1D4FCDE6005D0678 /* EIMultipieSelectionController.m in Sources */,
+				5C163E571D53C272004D258F /* EIConstants.m in Sources */,
 				5C123F741D4F630C005D0678 /* EIEditCell.m in Sources */,
 				5C123F301D4F5C99005D0678 /* EIEditSection.m in Sources */,
 				5C123F241D4E7CF3005D0678 /* EIUser+CoreDataProperties.m in Sources */,
@@ -584,6 +592,7 @@
 			baseConfigurationReference = A61122338A305C821D1F02F0 /* Pods-DevCourse_CoreData.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/DevCourse_CoreData-Prefix.pch";
 				INFOPLIST_FILE = DevCourse_CoreData/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.evg.DevCourse-CoreData";
@@ -596,6 +605,7 @@
 			baseConfigurationReference = 48D65A5FCB31F4CE8006D969 /* Pods-DevCourse_CoreData.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/DevCourse_CoreData-Prefix.pch";
 				INFOPLIST_FILE = DevCourse_CoreData/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.evg.DevCourse-CoreData";
