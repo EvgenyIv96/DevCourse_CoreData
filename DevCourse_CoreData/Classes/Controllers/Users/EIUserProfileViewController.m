@@ -33,6 +33,7 @@
     [self configureView];
     [self configureNavigationBar];
     [self loadUserCourses];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -165,6 +166,8 @@
 #pragma mark - Other
 
 - (void)configureView {
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.user.firstName, self.user.lastName];
     self.emailLabel.text = self.user.email;

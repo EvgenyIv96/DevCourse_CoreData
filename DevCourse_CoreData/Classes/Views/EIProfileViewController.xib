@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EIUserProfileViewController">
@@ -21,49 +20,34 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mky-Md-IFa" userLabel="Bottom view">
-                    <rect key="frame" x="0.0" y="198" width="600" height="402"/>
-                    <subviews>
-                        <collectionView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ck4-QW-3zz">
-                            <rect key="frame" x="150" y="46" width="240" height="128"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zLV-4w-z8L">
-                                <size key="itemSize" width="50" height="50"/>
-                                <size key="headerReferenceSize" width="50" height="25"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
-                            <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                <rect key="frame" x="0.0" y="0.0" width="800" height="293"/>
-                            </variation>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="cLz-dk-KYT"/>
-                                <outlet property="delegate" destination="-1" id="ytz-h6-Tkc"/>
-                            </connections>
-                        </collectionView>
-                    </subviews>
-                    <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstItem="Ck4-QW-3zz" firstAttribute="leading" secondItem="Mky-Md-IFa" secondAttribute="leading" id="OZo-zu-qf1"/>
-                        <constraint firstAttribute="trailing" secondItem="Ck4-QW-3zz" secondAttribute="trailing" id="bqr-x0-gIP"/>
-                        <constraint firstAttribute="bottom" secondItem="Ck4-QW-3zz" secondAttribute="bottom" id="xuM-OG-ogI"/>
-                        <constraint firstItem="Ck4-QW-3zz" firstAttribute="top" secondItem="Mky-Md-IFa" secondAttribute="top" id="yBG-Hp-gP2"/>
-                    </constraints>
+                <collectionView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ck4-QW-3zz">
+                    <rect key="frame" x="0.0" y="149" width="600" height="451"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zLV-4w-z8L">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="50" height="25"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
                     <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES">
-                        <rect key="frame" x="0.0" y="107" width="800" height="293"/>
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="293"/>
                     </variation>
-                </view>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SQf-cF-xnR" userLabel="Top View">
-                    <rect key="frame" x="0.0" y="64" width="600" height="134"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="cLz-dk-KYT"/>
+                        <outlet property="delegate" destination="-1" id="ytz-h6-Tkc"/>
+                    </connections>
+                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQf-cF-xnR" userLabel="Top View">
+                    <rect key="frame" x="0.0" y="64" width="600" height="80"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="noavatar" translatesAutoresizingMaskIntoConstraints="NO" id="TrO-YW-LgC">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noavatar" translatesAutoresizingMaskIntoConstraints="NO" id="TrO-YW-LgC">
                             <rect key="frame" x="15" y="5" width="75" height="75"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="75" id="8JS-86-HqN"/>
                                 <constraint firstAttribute="height" constant="75" id="idz-JQ-xhK"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="First name and last name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eks-Lm-xVd">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First name and last name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eks-Lm-xVd">
                             <rect key="frame" x="105" y="8" width="472" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="192" id="WZ1-cB-hvt"/>
@@ -78,7 +62,7 @@
                                 </mask>
                             </variation>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tt1-au-Acu">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tt1-au-Acu">
                             <rect key="frame" x="105" y="37" width="480" height="21"/>
                             <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -109,35 +93,30 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Mky-Md-IFa" firstAttribute="top" secondItem="SQf-cF-xnR" secondAttribute="bottom" id="APg-rt-L7N"/>
                 <constraint firstItem="SQf-cF-xnR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="C2Z-Uj-BHr"/>
+                <constraint firstItem="SQf-cF-xnR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="Gzh-ab-N3E"/>
                 <constraint firstAttribute="trailing" secondItem="SQf-cF-xnR" secondAttribute="trailing" id="Jh3-UP-sPn"/>
                 <constraint firstItem="SQf-cF-xnR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="45" id="KA6-lS-qgE"/>
-                <constraint firstAttribute="trailing" secondItem="Mky-Md-IFa" secondAttribute="trailing" id="LLF-xk-f0g"/>
                 <constraint firstItem="SQf-cF-xnR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="P0f-6O-UDY"/>
-                <constraint firstItem="Mky-Md-IFa" firstAttribute="height" secondItem="SQf-cF-xnR" secondAttribute="height" multiplier="2" id="XLW-sh-4xX"/>
-                <constraint firstItem="Mky-Md-IFa" firstAttribute="height" secondItem="SQf-cF-xnR" secondAttribute="height" multiplier="4" id="mGH-nh-e5f"/>
+                <constraint firstItem="Ck4-QW-3zz" firstAttribute="top" secondItem="SQf-cF-xnR" secondAttribute="bottom" constant="5" id="ll9-wU-QOw"/>
+                <constraint firstAttribute="trailing" secondItem="Ck4-QW-3zz" secondAttribute="trailing" id="mzB-VY-QWw"/>
                 <constraint firstItem="SQf-cF-xnR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="oIc-dJ-lns"/>
+                <constraint firstAttribute="bottom" secondItem="Ck4-QW-3zz" secondAttribute="bottom" id="pTm-JJ-pwH"/>
                 <constraint firstItem="SQf-cF-xnR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="t4g-Ux-n1E"/>
-                <constraint firstAttribute="bottom" secondItem="Mky-Md-IFa" secondAttribute="bottom" id="vV4-vL-nHJ"/>
-                <constraint firstItem="Mky-Md-IFa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xiH-oc-59I"/>
+                <constraint firstItem="Ck4-QW-3zz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zIq-sC-zH1"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="C2Z-Uj-BHr"/>
                     <exclude reference="KA6-lS-qgE"/>
                     <exclude reference="P0f-6O-UDY"/>
-                    <exclude reference="XLW-sh-4xX"/>
                     <exclude reference="oIc-dJ-lns"/>
-                    <exclude reference="mGH-nh-e5f"/>
                 </mask>
             </variation>
             <variation key="heightClass=compact">
                 <mask key="constraints">
                     <include reference="KA6-lS-qgE"/>
                     <exclude reference="P0f-6O-UDY"/>
-                    <include reference="XLW-sh-4xX"/>
-                    <exclude reference="mGH-nh-e5f"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
@@ -153,9 +132,7 @@
             <variation key="heightClass=compact-widthClass=regular">
                 <mask key="constraints">
                     <exclude reference="C2Z-Uj-BHr"/>
-                    <exclude reference="XLW-sh-4xX"/>
                     <exclude reference="oIc-dJ-lns"/>
-                    <exclude reference="mGH-nh-e5f"/>
                 </mask>
             </variation>
         </view>
