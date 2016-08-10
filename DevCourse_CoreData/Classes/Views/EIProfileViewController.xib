@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ck4-QW-3zz">
-                    <rect key="frame" x="0.0" y="149" width="600" height="451"/>
+                    <rect key="frame" x="0.0" y="85" width="600" height="515"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zLV-4w-z8L">
                         <size key="itemSize" width="50" height="50"/>
@@ -38,7 +38,7 @@
                     </connections>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQf-cF-xnR" userLabel="Top View">
-                    <rect key="frame" x="0.0" y="64" width="600" height="80"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noavatar" translatesAutoresizingMaskIntoConstraints="NO" id="TrO-YW-LgC">
                             <rect key="frame" x="15" y="5" width="75" height="75"/>
@@ -54,7 +54,7 @@
                                 <constraint firstAttribute="height" constant="21" id="krT-g9-Apw"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
@@ -65,7 +65,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tt1-au-Acu">
                             <rect key="frame" x="105" y="37" width="480" height="21"/>
                             <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -94,7 +94,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="SQf-cF-xnR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="C2Z-Uj-BHr"/>
-                <constraint firstItem="SQf-cF-xnR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="Gzh-ab-N3E"/>
+                <constraint firstItem="SQf-cF-xnR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Gzh-ab-N3E"/>
                 <constraint firstAttribute="trailing" secondItem="SQf-cF-xnR" secondAttribute="trailing" id="Jh3-UP-sPn"/>
                 <constraint firstItem="SQf-cF-xnR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="45" id="KA6-lS-qgE"/>
                 <constraint firstItem="SQf-cF-xnR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="P0f-6O-UDY"/>
@@ -115,13 +115,13 @@
             </variation>
             <variation key="heightClass=compact">
                 <mask key="constraints">
-                    <include reference="KA6-lS-qgE"/>
+                    <exclude reference="KA6-lS-qgE"/>
                     <exclude reference="P0f-6O-UDY"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
                 <mask key="constraints">
-                    <include reference="P0f-6O-UDY"/>
+                    <exclude reference="P0f-6O-UDY"/>
                 </mask>
             </variation>
             <variation key="widthClass=regular">

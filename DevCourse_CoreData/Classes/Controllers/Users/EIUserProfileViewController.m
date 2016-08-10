@@ -87,6 +87,11 @@
         EICoursesSection* section = [self.coursesSectionsArray objectAtIndex:indexPath.section];
         
         headerView.titleLabel.text = section.name;
+        headerView.backgroundColor = collectionHeaderViewBackgroundColor;
+        headerView.titleLabel.textColor = collectionHeaderLabelColor;
+        
+        headerView.layer.cornerRadius = 10;
+        headerView.layer.masksToBounds = YES;
         
         return headerView;
         

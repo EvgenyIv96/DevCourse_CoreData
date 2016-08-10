@@ -106,10 +106,12 @@ static NSString* const chooseBranchText = @"Tap to choose branch";
         switch (indexPath.row) {
             case 0:
                 self.nameField = cell.valueField;
+                cell.valueField.returnKeyType = UIReturnKeyNext;
                 break;
                 
             case 1:
                 self.subjectField = cell.valueField;
+                cell.valueField.returnKeyType = UIReturnKeyDone;
                 break;
                 
             case 2:
@@ -160,8 +162,7 @@ static NSString* const chooseBranchText = @"Tap to choose branch";
             NSString* nameString = [NSString stringWithFormat:@"%@ %@", student.firstName, student.lastName];
 
             cell.textLabel.text = nameString;
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
+             
             return cell;
          
          }
@@ -208,7 +209,7 @@ static NSString* const chooseBranchText = @"Tap to choose branch";
 
 - (nullable NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0 || indexPath.row != 0) {
         return nil;
     }
     
@@ -224,6 +225,8 @@ static NSString* const chooseBranchText = @"Tap to choose branch";
     if (indexPath.section != 0 && indexPath.row == 0) {
         [self addStudentsAction:[self.tableView cellForRowAtIndexPath:indexPath]];
     }
+    
+    
     
 }
 

@@ -14,16 +14,21 @@
 #import "EIEditCell.h"
 #import "EIAddCell.h"
 #import "EICoursesSelectionController.h"
+#import "EITextValidator.h"
 
 static NSString* const valueSectionName = @"User Info";
 static NSString* const studiedCoursesSectionName = @"Studied Courses";
 static NSString* const teachesCoursesSectionName = @"Taught Courses";
 
-@interface EIUserEditController () <EIMultipieSelectionControllerDelegate>
+@interface EIUserEditController () <EIMultipieSelectionControllerDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) NSArray* sectionsArray;
 @property (weak, nonatomic) EICoursesSelectionController* studiesController;
 @property (weak, nonatomic) EICoursesSelectionController* taughtController;
+
+@property (weak, nonatomic) UITextField* firstNameField;
+@property (weak, nonatomic) UITextField* lastNameField;
+@property (weak, nonatomic) UITextField* emailField;
 
 @end
 
@@ -89,6 +94,25 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
         
         cell.descriptionLabel.text = key;
         cell.valueField.text = [dataDictionary objectForKey:key];
+        cell.valueField.delegate = self;
+        
+        switch (indexPath.row) {
+            case 0:
+                self.firstNameField = cell.valueField;
+                cell.valueField.returnKeyType = UIReturnKeyNext;
+                break;
+                
+            case 1:
+                self.lastNameField = cell.valueField;
+                cell.valueField.returnKeyType = UIReturnKeyNext;
+                break;
+                
+            default:
+                self.emailField = cell.valueField;
+                cell.valueField.returnKeyType = UIReturnKeyDone;
+                break;
+        }
+
         
         return cell;
     
@@ -138,7 +162,6 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
             NSString* nameString = [NSString stringWithFormat:@"%@",course.name];
             
             cell.textLabel.text = nameString;
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             
             return cell;
 
@@ -185,6 +208,31 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
     }   
 }
 
+#pragma mark - UITableViewDelegate
+
+- (nullable NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 0 || indexPath.row != 0) {
+        return nil;
+    }
+    
+    return indexPath;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    EIEditSection* editSection = [self getSectionAtIndex:indexPath.section];
+    
+    if ([editSection.name isEqualToString:studiedCoursesSectionName]) {
+        [self addStudiedCourse:[tableView cellForRowAtIndexPath:indexPath]];
+    } else if ([editSection.name isEqualToString:teachesCoursesSectionName]) {
+        [self addTaughtCourse:[tableView cellForRowAtIndexPath:indexPath]];
+    }
+    
+}
+
 #pragma mark - EIMultipieSelectionControllerDelegate
 
 - (void)controller:(EIMultipieSelectionController *)controller didChangeSelectedObjects:(NSArray *)selectedObjects {
@@ -208,6 +256,42 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
         
     }
+    
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if ([textField isEqual:self.emailField]) {
+        [textField resignFirstResponder];
+    } else if ([textField isEqual:self.firstNameField]){
+        [self.lastNameField becomeFirstResponder];
+    } else {
+        [self.emailField becomeFirstResponder];
+    }
+    
+    return YES;
+    
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    NSString* newString;
+    
+    if ([textField isEqual:self.emailField]) {
+        
+        newString = [EITextValidator validateEmailString:textField.text shouldChangeCharactersInRange:range replacementString:string];
+        
+    } else {
+        
+        newString = [EITextValidator validateNameString:textField.text shouldChangeCharactersInRange:range replacementString:string];
+        
+    }
+    
+    textField.text = newString;
+    
+    return NO;
     
 }
 

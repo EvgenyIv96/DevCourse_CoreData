@@ -33,6 +33,8 @@
     
     self.window.rootViewController = vc;
     
+    self.window.tintColor = themeColor;
+    
     [self.window makeKeyAndVisible];
     
     return YES;

@@ -10,8 +10,6 @@
 
 extern NSString *const kXYMySitBaseURL;
 
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-
 #define tableViewBackgroundColor [UIColor whiteColor]
 #define tableViewSeparatorColor [UIColor clearColor]
 #define tableViewCellColor [UIColor clearColor]
@@ -20,8 +18,13 @@ extern NSString *const kXYMySitBaseURL;
 #define navigationBarTintColor [UIColor colorWithRed:35.f/255.f green:40.f/255.f blue:55.f/255.f alpha:1.0f]
 #define navigationBarTextColor [UIColor whiteColor]
 
-//#define tabBarTintColor [UIColor colorWithRed:/255.f green:/255.f blue:/255.f alpha:1.0f]
 #define tabBarTintColor [UIColor redColor]
+
+#define themeColor [UIColor redColor]
+
+#define collectionHeaderViewBackgroundColor [UIColor colorWithRed:35.f/255.f green:40.f/255.f blue:55.f/255.f alpha:0.9f]
+#define collectionHeaderLabelColor [UIColor whiteColor]
+
 @interface EIConstants : NSObject
 
 @end

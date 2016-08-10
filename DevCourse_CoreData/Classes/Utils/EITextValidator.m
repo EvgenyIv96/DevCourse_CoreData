@@ -61,7 +61,7 @@
     NSString* resultString = emailString;
     
     NSMutableCharacterSet* alphanumericSet = [NSMutableCharacterSet alphanumericCharacterSet];
-    [alphanumericSet addCharactersInString:@"@ "];
+    [alphanumericSet addCharactersInString:@"@ ."];
     
     NSCharacterSet* validationSet = [alphanumericSet invertedSet];
     
