@@ -100,16 +100,22 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
             case 0:
                 self.firstNameField = cell.valueField;
                 cell.valueField.returnKeyType = UIReturnKeyNext;
+                cell.valueField.autocorrectionType = UITextAutocorrectionTypeNo;
+                cell.valueField.autocapitalizationType = UITextAutocapitalizationTypeWords;
                 break;
                 
             case 1:
                 self.lastNameField = cell.valueField;
                 cell.valueField.returnKeyType = UIReturnKeyNext;
+                cell.valueField.autocorrectionType = UITextAutocorrectionTypeNo;
+                cell.valueField.autocapitalizationType = UITextAutocapitalizationTypeWords;
                 break;
                 
             default:
                 self.emailField = cell.valueField;
                 cell.valueField.returnKeyType = UIReturnKeyDone;
+                cell.valueField.autocorrectionType = UITextAutocorrectionTypeNo;
+                cell.valueField.autocapitalizationType = UITextAutocapitalizationTypeNone;
                 break;
         }
 
@@ -277,19 +283,15 @@ static NSString* const teachesCoursesSectionName = @"Taught Courses";
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     
-    NSString* newString;
-    
     if ([textField isEqual:self.emailField]) {
         
-        newString = [EITextValidator validateEmailString:textField.text shouldChangeCharactersInRange:range replacementString:string];
+        return [EITextValidator emailString:textField.text shouldChangeCharactersInRange:range replacementString:string];
         
     } else {
         
-        newString = [EITextValidator validateNameString:textField.text shouldChangeCharactersInRange:range replacementString:string];
+        return [EITextValidator nameString:textField.text shouldChangeCharactersInRange:range replacementString:string];
         
     }
-    
-    textField.text = newString;
     
     return NO;
     

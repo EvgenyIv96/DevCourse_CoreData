@@ -10,8 +10,8 @@
 
 @interface EITextValidator : NSObject
 
-+ (NSString *)validateNameString:(NSString *)nameString shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
-+ (NSString *)validateCourseNameString:(NSString *)courseString shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
-+ (NSString *)validateEmailString:(NSString *)emailString shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
++ (BOOL)nameString:(NSString *)nameString shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
++ (BOOL)courseNameString:(NSString *)courseString shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
++ (BOOL)emailString:(NSString *)emailString shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
 
 @end

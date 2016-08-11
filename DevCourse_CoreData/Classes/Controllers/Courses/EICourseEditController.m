@@ -107,11 +107,13 @@ static NSString* const chooseBranchText = @"Tap to choose branch";
             case 0:
                 self.nameField = cell.valueField;
                 cell.valueField.returnKeyType = UIReturnKeyNext;
+                cell.valueField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
                 break;
                 
             case 1:
                 self.subjectField = cell.valueField;
                 cell.valueField.returnKeyType = UIReturnKeyDone;
+                cell.valueField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
                 break;
                 
             case 2:
@@ -321,13 +323,8 @@ static NSString* const chooseBranchText = @"Tap to choose branch";
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     
-    NSString* newString;
+    return [EITextValidator courseNameString:textField.text shouldChangeCharactersInRange:range replacementString:string];
     
-    newString = [EITextValidator validateCourseNameString:textField.text shouldChangeCharactersInRange:range replacementString:string];
-    
-    textField.text = newString;
-    
-    return NO;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

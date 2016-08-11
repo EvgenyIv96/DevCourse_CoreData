@@ -10,7 +10,7 @@
 
 @implementation EITextValidator
 
-+ (NSString *)validateNameString:(NSString *)nameString shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
++ (BOOL)nameString:(NSString *)nameString shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     
     NSString* resultString = nameString;
     
@@ -23,17 +23,19 @@
     
     if (!([components count] > 1)) {
         resultString = [nameString stringByReplacingCharactersInRange:range withString:string];
+    } else {
+        return NO;
     }
     
     if (resultString.length >= 25) {
-        return nameString;
+        return NO;
     }
     
-    return resultString;
+    return YES;
     
 }
 
-+ (NSString *)validateCourseNameString:(NSString *)courseString shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
++ (BOOL)courseNameString:(NSString *)courseString shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     
     NSString* resultString = courseString;
     
@@ -46,17 +48,19 @@
     
     if (!([components count] > 1)) {
         resultString = [courseString stringByReplacingCharactersInRange:range withString:string];
+    } else {
+        return NO;
     }
     
     if (resultString.length >= 40) {
-        return courseString;
+        return NO;
     }
     
-    return resultString;
+    return YES;
     
 }
 
-+ (NSString *)validateEmailString:(NSString *)emailString shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
++ (BOOL)emailString:(NSString *)emailString shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     
     NSString* resultString = emailString;
     
@@ -69,13 +73,29 @@
     
     if (!([components count] > 1)) {
         resultString = [emailString stringByReplacingCharactersInRange:range withString:string];
+    } else {
+        return NO;
+    }
+
+    NSCharacterSet* atSet = [NSCharacterSet characterSetWithCharactersInString:@"@"];
+    NSCharacterSet* dotSet = [NSCharacterSet characterSetWithCharactersInString:@"."];
+    
+    NSArray* atComponentsInResultString = [resultString componentsSeparatedByCharactersInSet:atSet];
+    NSArray* dotComponentsInString = [resultString componentsSeparatedByCharactersInSet:dotSet];
+    
+    if ([atComponentsInResultString count] > 2) {
+        return NO;
+    }
+    
+    if ([dotComponentsInString count] > 2) {
+        return NO;
     }
     
     if ([resultString length] >= 30) {
-        return emailString;
+        return NO;
     }
     
-    return resultString;
+    return YES;
     
 }
 
