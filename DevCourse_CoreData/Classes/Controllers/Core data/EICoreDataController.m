@@ -88,7 +88,7 @@
         cell = [[SWTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
         
         cell.delegate = self;
-        cell.rightUtilityButtons = [self rightCellButtons];
+        [cell setRightUtilityButtons:[self rightCellButtons] WithButtonWidth:55];
         
     }
     
